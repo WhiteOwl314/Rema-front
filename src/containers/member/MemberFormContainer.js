@@ -12,12 +12,20 @@ function MemberFormContainer() {
         dispatch(CheckMemberId(e.target.value));
     };
 
+    let idIsExisted = false;
+
     console.log(data);
+
+    if(data){
+        idIsExisted = data.idIsExisted;
+        console.log(idIsExisted);
+    }
 
     return (
         <>
             <MemberForm
                 onChange={onChange}
+                idIsExisted={idIsExisted}
             />
         </>
     )
