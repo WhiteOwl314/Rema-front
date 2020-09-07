@@ -1,10 +1,10 @@
 import React from 'react';
-import MemberForm from "./components/MemberForm";
+import MemberFormPage from "./pages/member/MemberFormPage";
 
 function App() {
   return (
       <>
-          <MemberForm/>
+          <MemberFormPage/>
       </>
   );
 }
