@@ -1,6 +1,4 @@
 import React from 'react';
-import axios from 'axios';
-import {CheckMemberId} from "../../api/member";
 
 function MemberForm({onChange, idIsExisted}) {
 
