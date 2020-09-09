@@ -5,23 +5,38 @@ import {
     handleAsyncActions
 } from "../../lib/asyncUtils";
 
-const CHECK_MEMBER_ID = 'CHECK_MEMBER_ID';
-const CHECK_MEMBER_ID_SUCCESS = 'CHECK_MEMBER_ID_SUCCESS';
-const CHECK_MEMBER_ID_ERROR = 'CHECK_MEMBER_ID_ERROR';
+//아이디 체크
+const CHECK_ID = 'CHECK_ID';
+const CHECK_ID_SUCCESS = 'CHECK_ID_SUCCESS';
+const CHECK_ID_ERROR = 'CHECK_ID_ERROR';
 
-export const CheckMemberId =
-    createPromoseThunk(CHECK_MEMBER_ID, memberAPI.CheckMemberId);
+//회원가입
+const ADD_MEMBER = 'ADD_MEMBER';
+const ADD_MEMBER_SUCCESS = 'ADD_MEMBER_SUCCESS';
+const ADD_MEMBER_ERROR = 'ADD_MEMBER_ERROR';
+
+export const CheckId =
+    createPromoseThunk(CHECK_ID, memberAPI.checkId);
+
+export const AddMember =
+    createPromoseThunk(ADD_MEMBER, memberAPI.addMember);
 
 const initialState = {
-    checkMemberId: reducerUtils.initial()
+    checkId: reducerUtils.initial(),
+    addMember: reducerUtils.initial()
 };
 
 export default function member (state = initialState, action) {
     switch (action.type) {
-        case CHECK_MEMBER_ID:
-        case CHECK_MEMBER_ID_SUCCESS:
-        case CHECK_MEMBER_ID_ERROR:
-            return handleAsyncActions(CHECK_MEMBER_ID, 'checkMemberId')
+        case CHECK_ID:
+        case CHECK_ID_SUCCESS:
+        case CHECK_ID_ERROR:
+            return handleAsyncActions(CHECK_ID, 'checkId')
+                (state,action);
+        case ADD_MEMBER:
+        case ADD_MEMBER_SUCCESS:
+        case ADD_MEMBER_ERROR:
+            return handleAsyncActions(ADD_MEMBER, 'addMember')
                 (state,action);
         default:
             return state;

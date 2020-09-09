@@ -1,31 +1,47 @@
-import React from 'react';
+import React, {useState} from 'react';
 import MemberForm from '../../components/member/MemberForm';
 import {useSelector, useDispatch} from "react-redux";
-import {CheckMemberId} from "../../modules/member/member";
+import {CheckId} from "../../modules/member/member";
 
 function MemberFormContainer() {
-    const {data, loading, error } =
-        useSelector(state => state.member.checkMemberId);
+    // let idIsExisted = false;
+    // let emailIsExisted = false;
+    // let addMemberToDb = false;
+    // let setEmail = false;
+
+    const checkIdState =
+        useSelector(state => state.member.checkId);
+    const addMemberState =
+        useSelector(state => state.member.addMember);
     const dispatch = useDispatch();
 
+    const [formState, setFormState] = useState({
+        // 필요: id, pw, level, name, email
+        id: '',
+        pw: '',
+        level: '',
+        name: '',
+        email: ''
+    });
+
     const onChange = (e) => {
-        dispatch(CheckMemberId(e.target.value));
+        const{name, value} = e.target;
+        if(name == "id"){
+            dispatch(CheckId(e.target.value));
+        }
+        setFormState({
+            ...formState,
+            [name]: value
+        })
     };
-
-    let idIsExisted = false;
-
-    console.log(data);
-
-    if(data){
-        idIsExisted = data.idIsExisted;
-        console.log(idIsExisted);
-    }
 
     return (
         <>
             <MemberForm
                 onChange={onChange}
-                idIsExisted={idIsExisted}
+                checkId={checkIdState.data}
+                addMember={addMemberState.data}
+                formState={formState}
             />
         </>
     )
