@@ -4,7 +4,7 @@ import {useSelector, useDispatch} from "react-redux";
 import {AddMember, CheckEmail, CheckId} from "../../modules/member/member";
 import MemberFormTemplate from "../../components/member/memberForm/MemberFormTemplate";
 
-function MemberFormContainer() {
+function MemberFormContainer({history}) {
 
     const checkIdState =
         useSelector(state => state.member.checkId);
@@ -53,6 +53,7 @@ function MemberFormContainer() {
                     checkIdState ={checkIdState}
                     checkEmailState ={checkEmailState}
                     addMemberState ={addMemberState}
+                    history={history}
                 />
             </MemberFormTemplate>
         </>

@@ -11,7 +11,8 @@ function MemberForm({
                         formState,
                         checkIdState,
                         checkEmailState,
-                        addMemberState
+                        addMemberState,
+                        history
 }) {
 
     let idIsExisted = false;
@@ -33,7 +34,7 @@ function MemberForm({
 
     if(loading) return <LoadingPage/>;
     if(error) return <ErrorPage/>;
-    if(addMemberToDb && sentEmail) return <MemberFormSuccessPage/>;
+    if(addMemberToDb && sentEmail) return <MemberFormSuccessPage history={history}/>;
 
     return(
         <form

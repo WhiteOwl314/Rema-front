@@ -22,6 +22,7 @@ const SuccessText = styled.div`
 `;
 
 function MemberFormSuccessPage({history}) {
+
     return(
         <MemberFormSuccessPageBlock>
             <IconContext.Provider
