@@ -3,6 +3,7 @@ import styled, {css, keyframes} from 'styled-components';
 import LoadingIcon from "../../../lib/css/LoadingIcon";
 import LoadingPage from "../../common/LoadingPage";
 import ErrorPage from "../../common/ErrorPage";
+import MemberFormSuccessPage from "./MemberFormSuccessPage";
 
 function MemberForm({
                         onChange,
@@ -32,13 +33,7 @@ function MemberForm({
 
     if(loading) return <LoadingPage/>;
     if(error) return <ErrorPage/>;
-    if(addMemberToDb && sentEmail){
-        return (
-            <>
-                '성공했습니다. 이메일 인증 후 로그인해주세요.'
-            </>
-        )
-    }
+    if(addMemberToDb && sentEmail) return <MemberFormSuccessPage/>;
 
     return(
         <form
