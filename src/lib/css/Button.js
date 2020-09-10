@@ -68,7 +68,7 @@ const fullWidthStyle = css`
     }
 `;
 
-const ButtonBlock = styled.div`
+const ButtonBlock = styled.button`
      /*공통 스타일*/
     display: flex;
     outline: none;

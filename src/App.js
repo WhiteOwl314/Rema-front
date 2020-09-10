@@ -26,9 +26,10 @@ function App() {
                       fourthC: '#3B77AF',
                       fifthC: '#58B1BA',
                       sixthC: '#3B6272',
-                      gray: '#e9ecef',
+                      border: '#e9ecef',
                       black: '#3B3B3B',
-                      green: 'green'
+                      green: 'green',
+                      gray: 'gray'
                   }
               }}
           >

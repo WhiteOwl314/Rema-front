@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4333ac0-a4be-47cb-922d-e29c8179feeb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/member/memberForm/MemberFormHeader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/member/login/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/member/login/LoginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/member/login/LoginTemplate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/member/login/LoginTemplate.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/member/memberForm/MemberForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/member/memberForm/MemberForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/member/memberForm/MemberFormSuccessPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/member/memberForm/MemberFormSuccessPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/member/memberForm/MemberFormHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/member/memberForm/MemberFormHeader.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/member/memberForm/MemberFormTemplate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/member/memberForm/MemberFormTemplate.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/member/MemberFormContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/member/MemberFormContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/css/LoadingIcon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/css/LoadingIcon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/css/Button.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/css/Button.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,47 +26,23 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/App.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="313">
+                  <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+                  <folding>
+                    <element signature="e#0#26#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/components/member/memberForm/MemberFormTemplate.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="198">
-                  <caret line="11" selection-start-line="11" selection-end-line="11" />
-                  <folding>
-                    <element signature="e#0#26#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/App.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="234">
-                  <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-                  <folding>
-                    <element signature="e#0#26#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/containers/member/MemberFormContainer.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="295">
-                  <caret line="54" selection-start-line="54" selection-end-line="54" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/components/member/memberForm/MemberFormHeader.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="65">
-                  <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-                  <folding>
-                    <element signature="e#0#26#0" expanded="true" />
-                  </folding>
+                <state>
+                  <caret column="24" selection-start-column="24" selection-end-column="24" />
                 </state>
               </provider>
             </entry>
@@ -78,8 +50,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/components/member/memberForm/MemberFormSuccessPage.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="198">
-                  <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+                <state relative-caret-position="148">
+                  <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
                   </folding>
@@ -88,43 +60,10 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/components/member/login/LoginForm.js">
+            <entry file="file://$PROJECT_DIR$/src/lib/css/Button.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="126">
-                  <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/components/member/login/LoginTemplate.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="216">
-                  <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
-                  <folding>
-                    <element signature="e#0#26#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/lib/css/LoadingIcon.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="249">
-                  <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-                  <folding>
-                    <element signature="e#0#26#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/pages/member/MemberFormPage.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="72">
-                  <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+                <state relative-caret-position="279">
+                  <caret line="70" column="32" selection-start-line="70" selection-start-column="32" selection-end-line="70" selection-end-column="32" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
                   </folding>
@@ -137,22 +76,10 @@
       <split-second>
         <leaf>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/components/member/memberForm/MemberForm.js">
+            <entry file="file://$PROJECT_DIR$/src/components/member/memberForm/MemberFormTemplate.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="234">
-                  <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
-                  <folding>
-                    <element signature="e#0#26#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/components/member/memberForm/MemberFormSuccessPage.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="270">
-                  <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+                <state relative-caret-position="216">
+                  <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
                   </folding>
@@ -161,10 +88,10 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/lib/css/Button.js">
+            <entry file="file://$PROJECT_DIR$/src/components/member/memberForm/MemberForm.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1944">
-                  <caret line="108" column="20" selection-start-line="108" selection-start-column="20" selection-end-line="108" selection-end-column="20" />
+                <state relative-caret-position="-194">
+                  <caret line="60" column="21" lean-forward="true" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="21" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
                   </folding>
@@ -173,10 +100,13 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/containers/member/MemberFormContainer.js">
+            <entry file="file://$PROJECT_DIR$/src/components/member/memberForm/MemberFormHeader.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="54">
-                  <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+                <state relative-caret-position="27">
+                  <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+                  <folding>
+                    <element signature="e#0#26#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -241,17 +171,17 @@
         <option value="$PROJECT_DIR$/src/components/common/Loading.js" />
         <option value="$PROJECT_DIR$/src/components/common/LoadingPage.js" />
         <option value="$PROJECT_DIR$/src/components/common/ErrorPage.js" />
-        <option value="$PROJECT_DIR$/src/lib/css/Button.js" />
         <option value="$PROJECT_DIR$/src/pages/member/MemberFormPage.js" />
         <option value="$PROJECT_DIR$/src/lib/css/LoadingIcon.js" />
         <option value="$PROJECT_DIR$/src/components/member/login/LoginTemplate.js" />
         <option value="$PROJECT_DIR$/src/components/member/login/LoginForm.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/components/member/memberForm/MemberForm.js" />
-        <option value="$PROJECT_DIR$/src/components/member/memberForm/MemberFormTemplate.js" />
         <option value="$PROJECT_DIR$/src/containers/member/MemberFormContainer.js" />
+        <option value="$PROJECT_DIR$/src/lib/css/Button.js" />
         <option value="$PROJECT_DIR$/src/components/member/memberForm/MemberFormSuccessPage.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/components/member/memberForm/MemberFormTemplate.js" />
         <option value="$PROJECT_DIR$/src/components/member/memberForm/MemberFormHeader.js" />
+        <option value="$PROJECT_DIR$/src/components/member/memberForm/MemberForm.js" />
       </list>
     </option>
   </component>
@@ -410,12 +340,12 @@
       <workItem from="1599458592780" duration="7162000" />
       <workItem from="1599568200967" duration="28994000" />
       <workItem from="1599713454789" duration="10257000" />
-      <workItem from="1599725550985" duration="9632000" />
+      <workItem from="1599725550985" duration="13527000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77355000" />
+    <option name="totallyTimeSpent" value="81250000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
@@ -437,7 +367,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="TypeScript" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32905984" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32905984" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
@@ -724,20 +654,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/css/LoadingIcon.js">
+    <entry file="file://$PROJECT_DIR$/src/components/common/ErrorPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/member/login/LoginTemplate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
+        <state relative-caret-position="234">
+          <caret line="13" column="23" lean-forward="true" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -751,6 +671,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/member/login/LoginTemplate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/css/LoadingIcon.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/member/MemberFormPage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -761,47 +701,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/member/memberForm/MemberFormTemplate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/member/MemberFormContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
+        <state relative-caret-position="54">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/common/ErrorPage.js">
+    <entry file="file://$PROJECT_DIR$/src/lib/css/Button.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="23" lean-forward="true" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/member/memberForm/MemberForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+        <state relative-caret-position="279">
+          <caret line="70" column="32" selection-start-line="70" selection-start-column="32" selection-end-line="70" selection-end-column="32" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -810,18 +720,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/member/memberForm/MemberFormSuccessPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+        <state relative-caret-position="148">
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/css/Button.js">
+    <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1944">
-          <caret line="108" column="20" selection-start-line="108" selection-start-column="20" selection-end-line="108" selection-end-column="20" />
+        <state relative-caret-position="313">
+          <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/member/memberForm/MemberFormTemplate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -830,8 +750,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/member/memberForm/MemberFormHeader.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+        <state relative-caret-position="27">
+          <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/member/memberForm/MemberForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-194">
+          <caret line="60" column="21" lean-forward="true" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="21" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

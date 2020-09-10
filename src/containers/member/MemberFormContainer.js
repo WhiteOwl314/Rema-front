@@ -46,9 +46,7 @@ function MemberFormContainer({history}) {
 
     return (
         <>
-            <MemberFormTemplate
-                history={history}
-            >
+            <MemberFormTemplate>
                 <MemberFormHeader
                     history={history}
                 />
