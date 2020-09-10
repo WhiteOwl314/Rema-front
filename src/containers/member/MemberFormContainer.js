@@ -1,16 +1,15 @@
 import React, {useState} from 'react';
-import MemberForm from '../../components/member/MemberForm';
+import MemberForm from '../../components/member/memberForm/MemberForm';
 import {useSelector, useDispatch} from "react-redux";
-import {CheckId} from "../../modules/member/member";
+import {AddMember, CheckEmail, CheckId} from "../../modules/member/member";
+import MemberFormTemplate from "../../components/member/memberForm/MemberFormTemplate";
 
 function MemberFormContainer() {
-    // let idIsExisted = false;
-    // let emailIsExisted = false;
-    // let addMemberToDb = false;
-    // let setEmail = false;
 
     const checkIdState =
         useSelector(state => state.member.checkId);
+    const checkEmailState =
+        useSelector(state => state.member.checkEmail);
     const addMemberState =
         useSelector(state => state.member.addMember);
     const dispatch = useDispatch();
@@ -19,7 +18,8 @@ function MemberFormContainer() {
         // 필요: id, pw, level, name, email
         id: '',
         pw: '',
-        level: '',
+        pw2: '',
+        level: '1',
         name: '',
         email: ''
     });
@@ -27,7 +27,10 @@ function MemberFormContainer() {
     const onChange = (e) => {
         const{name, value} = e.target;
         if(name == "id"){
-            dispatch(CheckId(e.target.value));
+            dispatch(CheckId(value));
+        }
+        if(name == "email") {
+            dispatch(CheckEmail(value));
         }
         setFormState({
             ...formState,
@@ -35,14 +38,23 @@ function MemberFormContainer() {
         })
     };
 
+    const onSubmit = (e) => {
+        e.preventDefault();
+        dispatch(AddMember(formState));
+    };
+
     return (
         <>
-            <MemberForm
-                onChange={onChange}
-                checkId={checkIdState.data}
-                addMember={addMemberState.data}
-                formState={formState}
-            />
+            <MemberFormTemplate>
+                <MemberForm
+                    onChange={onChange}
+                    onSubmit={onSubmit}
+                    formState={formState}
+                    checkIdState ={checkIdState}
+                    checkEmailState ={checkEmailState}
+                    addMemberState ={addMemberState}
+                />
+            </MemberFormTemplate>
         </>
     )
 }

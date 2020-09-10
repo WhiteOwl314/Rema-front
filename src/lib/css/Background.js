@@ -8,11 +8,14 @@ const BackgroundBlock = styled.div`
             background: ${selected};
             width: 100%;
             height: 100%;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
         `;
     }}
 `;
 
-    function Background({children, color}) {
+function Background({children, color}) {
 
     return(
         <BackgroundBlock color={color}>

@@ -2,8 +2,10 @@ import React from 'react';
 import styled ,{createGlobalStyle, ThemeProvider, css} from "styled-components";
 import {Route} from 'react-router-dom';
 import MemberFormPage from "./pages/member/MemberFormPage";
-import LoginPage from "./pages/member/LoginPage";
 import MemberPage from "./pages/member/MemberPage";
+import LoadingPage from "./components/common/LoadingPage";
+import ErrorPage from "./components/common/ErrorPage";
+import MemberFormSuccessPage from "./components/member/memberForm/MemberFormSuccessPage";
 
 const GlobalStyle = createGlobalStyle`
     html, body, #root{
@@ -36,7 +38,10 @@ function App() {
                   path="/member"
                   component={MemberPage}
               />
-              <Route path="/member/memberForm" component={MemberFormPage}/>
+              <Route
+                  path="/test"
+                  component={ErrorPage}
+              />
           </ThemeProvider>
   );
 }

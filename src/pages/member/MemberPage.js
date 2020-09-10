@@ -8,7 +8,7 @@ function MemberPage({match, history}) {
 
     return (
         <Background
-            color='fifthC'
+            color='fourthC'
         >
             <Route
                 path={`${match.path}/login`}
