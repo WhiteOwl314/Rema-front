@@ -1,10 +1,7 @@
 import React from 'react';
-import styled ,{createGlobalStyle, ThemeProvider, css} from "styled-components";
+import {createGlobalStyle, ThemeProvider} from "styled-components";
 import {Route} from 'react-router-dom';
-import MemberFormPage from "./pages/member/MemberFormPage";
 import MemberPage from "./pages/member/MemberPage";
-import LoadingPage from "./components/common/LoadingPage";
-import ErrorPage from "./components/common/ErrorPage";
 import MemberFormSuccessPage from "./components/member/memberForm/MemberFormSuccessPage";
 
 const GlobalStyle = createGlobalStyle`

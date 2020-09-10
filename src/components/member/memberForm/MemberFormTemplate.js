@@ -9,6 +9,7 @@ const MemberFormTemplateBlock = styled.div`
     box-shadow: 0 0 8px 0 rgba(0,0,0,0.2);
 `;
 
+
 function MemberFormTemplate({children}) {
     return (
         <MemberFormTemplateBlock>

@@ -23,7 +23,7 @@ const LoadingIconBlock = styled.img.attrs({
 function LoadingIcon({color, width, loadingSizeKind}) {
     let loadingSrc = loadingIcon10;
 
-    if(loadingSizeKind == 12){
+    if(loadingSizeKind === 12){
         loadingSrc = loadingIcon12;
     }
 

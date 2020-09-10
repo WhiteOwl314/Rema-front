@@ -1,6 +1,4 @@
 import React from 'react';
-import styled, {css, keyframes} from 'styled-components';
-import LoadingIcon from "../../../lib/css/LoadingIcon";
 import LoadingPage from "../../common/LoadingPage";
 import ErrorPage from "../../common/ErrorPage";
 import MemberFormSuccessPage from "./MemberFormSuccessPage";
@@ -40,10 +38,6 @@ function MemberForm({
         <form
             onSubmit={onSubmit}
         >
-            <LoadingIcon
-                loadingSizeKind='12'
-                width='100px'
-            />
             <label>
                 아이디:
                 <input
@@ -80,9 +74,9 @@ function MemberForm({
             </label>
             <div>
                 {
-                    formState.pw2 != ''
-                    && formState.pw != ''
-                    && formState.pw != formState.pw2
+                    formState.pw2 !== ''
+                    && formState.pw !== ''
+                    && formState.pw !== formState.pw2
                         ? '비밀번호가 일치하지 않습니다.'
                         : ''
                 }
@@ -119,13 +113,13 @@ function MemberForm({
                 value={formState.level}
             />
             {
-                formState.id != ''
-                && formState.pw != ''
-                && formState.pw2 != ''
-                && formState.name != ''
-                && formState.email != ''
-                && idIsExisted == false
-                && emailIsExisted == false
+                formState.id !== ''
+                && formState.pw !== ''
+                && formState.pw2 !== ''
+                && formState.name !== ''
+                && formState.email !== ''
+                && idIsExisted === false
+                && emailIsExisted === false
                     ? <input type="submit" value="회원가입"/>
                     : <input type="submit" value="회원가입" disabled/>
             }
