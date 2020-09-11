@@ -62,7 +62,35 @@ export const loginAlertFunction = (payload) => {
     }
 };
 
+export const findId = async formState => {
+    console.log(formState);
+    const response = await axios({
+        method: 'post',
+        url: 'http://localhost:8080/member/findId.do',
+        // data: {email}
+        data: formState
+    });
 
+    return response.data;
+};
+
+export const findIdAlertFunction = (payload) => {
+    const {idIsExisted} = payload;
+    if(!idIsExisted){
+        alert('아이디가 존재하지 않습니다.');
+    }
+};
+
+export const findPw = async formData => {
+    const response = await axios({
+        method: 'post',
+        url: 'http://localhost:8080/member/findPw.do',
+        // data: {id, email}
+        data: formData
+    });
+
+    return response.data;
+};
 
 
 

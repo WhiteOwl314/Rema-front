@@ -28,6 +28,19 @@ const LOGIN_ERROR = 'LOGIN_ERROR';
 //로그인 초기화
 const CLEAR_LOGIN = 'CLEAR_LOGIN';
 
+//아이디 찾기
+const FIND_ID = 'FIND_ID';
+const FIND_ID_SUCCESS = 'FIND_ID_SUCCESS';
+const FIND_ID_ERROR = 'FIND_ID_ERROR';
+
+//아이디찾기 초기화
+const CLEAR_FIND_ID = 'CLEAR_FIND_ID';
+
+//비밀번호 찾기
+const FIND_PW = 'FIND_PW';
+const FIND_PW_SUCCESS = 'FIND_PW_SUCCESS';
+const FIND_PW_ERROR = 'FIND_PW_ERROR';
+
 
 export const CheckId =
     createPromiseThunk(CHECK_ID, memberAPI.checkId);
@@ -38,12 +51,19 @@ export const AddMember =
 export const Login =
     createPromiseThunkWithFunction(LOGIN, memberAPI.login, memberAPI.loginAlertFunction);
 export const clearLogin = () => ({type: CLEAR_LOGIN});
+export const FindId =
+    createPromiseThunkWithFunction(FIND_ID, memberAPI.findId, memberAPI.findIdAlertFunction);
+export const ClearFindId = () => ({type: CLEAR_FIND_ID});
+export const FindPw =
+    createPromiseThunk(FIND_PW, memberAPI.findPw);
 
 const initialState = {
     checkId: reducerUtils.initial(),
     checkEmail: reducerUtils.initial(),
     addMember: reducerUtils.initial(),
-    login: reducerUtils.initial()
+    login: reducerUtils.initial(),
+    findId: reducerUtils.initial(),
+    findPw: reducerUtils.initial()
 };
 
 export default function member (state = initialState, action) {
@@ -73,6 +93,21 @@ export default function member (state = initialState, action) {
                 ...state,
                 login: reducerUtils.initial()
             };
+        case FIND_ID:
+        case FIND_ID_SUCCESS:
+        case FIND_ID_ERROR:
+            return handleAsyncActions(FIND_ID, 'findId')
+            (state,action);
+        case CLEAR_FIND_ID:
+            return {
+                ...state,
+                findId: reducerUtils.initial()
+            };
+        case FIND_PW:
+        case FIND_PW_SUCCESS:
+        case FIND_PW_ERROR:
+            return handleAsyncActions(FIND_PW, 'findPw')
+            (state,action);
         default:
             return state;
     }

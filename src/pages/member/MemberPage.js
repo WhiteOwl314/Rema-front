@@ -3,8 +3,10 @@ import Background from "../../lib/css/Background";
 import {Route} from 'react-router-dom'
 import LoginPage from "./LoginPage";
 import MemberFormPage from "./MemberFormPage";
+import FindIdPage from "./FindIdPage";
+import FindPwPage from "./FindPwPage";
 
-function MemberPage({match, history}) {
+function MemberPage({match}) {
 
     return (
         <Background
@@ -18,6 +20,16 @@ function MemberPage({match, history}) {
             <Route
                 path={`${match.path}/memberForm`}
                 component={MemberFormPage}
+                exact
+            />
+            <Route
+                path={`${match.path}/findId`}
+                component={FindIdPage}
+                exact
+            />
+            <Route
+                path={`${match.path}/findPw`}
+                component={FindPwPage}
                 exact
             />
         </Background>

@@ -23,6 +23,7 @@ export const createPromiseThunkWithFunction =
                 const payload = await promiseCreator(param);
                 dispatch({type:SUCCESS, payload});
                 successFunction(payload);
+                console.log(payload);
             } catch (e) {
                 dispatch({type:ERROR, payload: e, error: true});
             }

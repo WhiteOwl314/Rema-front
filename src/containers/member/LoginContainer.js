@@ -2,8 +2,7 @@ import React,{useState, useCallback} from 'react';
 import LoginForm from "../../components/member/login/LoginForm";
 import LoginTemplate from "../../components/member/login/LoginTemplate";
 import {useDispatch, useSelector} from "react-redux";
-import {clearLogin, Login} from "../../modules/member/member";
-import ErrorPage from "../../components/common/ErrorPage";
+import {Login} from "../../modules/member/member";
 
 function LoginContainer({history}) {
 
@@ -24,9 +23,9 @@ function LoginContainer({history}) {
         })
     },[formState]);
 
-    const onSubmit = async (e) => {
+    const onSubmit = (e) => {
         e.preventDefault();
-        await dispatch(Login(formState));
+        dispatch(Login(formState));
 
         setFormState({
             ...formState,

@@ -86,13 +86,13 @@ function LoginTemplate({children}) {
             {children}
             <LoginMenu>
                 <Link
-                    to="/"
+                    to="/member/findId"
                     className='firstChild'
                 >
                     아이디 찾기
                 </Link>
                 <Link
-                    to="/"
+                    to="/member/findPw"
                     className='secondChild'
 
                 >
