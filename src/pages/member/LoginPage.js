@@ -1,9 +1,9 @@
 import React from 'react';
 import LoginContainer from "../../containers/member/LoginContainer";
 
-function LoginPage() {
+function LoginPage({history}) {
     return(
-        <LoginContainer/>
+        <LoginContainer history={history}/>
     );
 }
 

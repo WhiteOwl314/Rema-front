@@ -4,7 +4,7 @@ import LoginTemplate from "../../components/member/login/LoginTemplate";
 import {useDispatch, useSelector} from "react-redux";
 import {Login} from "../../modules/member/member";
 
-function LoginContainer() {
+function LoginContainer({history}) {
 
     const loginState =
         useSelector(state => state.member.login);
@@ -35,6 +35,7 @@ function LoginContainer() {
                 onSubmit={onSubmit}
                 formState={formState}
                 loginState={loginState}
+                history={history}
             />
         </LoginTemplate>
     )

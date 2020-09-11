@@ -1,5 +1,6 @@
 import React from 'react';
 import styled,{css} from "styled-components";
+import {Link} from "react-router-dom";
 
 const LoginTemplateBlock = styled.div`
     width: 500px;
@@ -50,6 +51,25 @@ const HeaderSubText = styled.div`
 `;
 
 const LoginMenu = styled.div`
+    display: flex;
+    justify-content: center;
+    
+    .firstChild{
+        text-decoration: none;
+        color: gray;
+    }
+    
+    .secondChild{
+        margin-left: 20px;
+        text-decoration: none;
+        color: gray;
+    }
+    
+    .lastChild{
+        margin-left: 20px;
+        text-decoration: none;
+        color: gray;
+    }
 `;
 
 function LoginTemplate({children}) {
@@ -65,8 +85,25 @@ function LoginTemplate({children}) {
             </LoginHeader>
             {children}
             <LoginMenu>
-                아이디 찾기
-                비밀번호 찾기
+                <Link
+                    to="/"
+                    className='firstChild'
+                >
+                    아이디 찾기
+                </Link>
+                <Link
+                    to="/"
+                    className='secondChild'
+
+                >
+                    비밀번호 찾기
+                </Link>
+                <Link
+                    to='/member/memberForm'
+                    className='lastChild'
+                >
+                    회원가입
+                </Link>
             </LoginMenu>
         </LoginTemplateBlock>
     )
