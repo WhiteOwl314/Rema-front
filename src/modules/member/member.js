@@ -20,17 +20,26 @@ const ADD_MEMBER = 'ADD_MEMBER';
 const ADD_MEMBER_SUCCESS = 'ADD_MEMBER_SUCCESS';
 const ADD_MEMBER_ERROR = 'ADD_MEMBER_ERROR';
 
+//로그인
+const LOGIN = 'LOGIN';
+const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+const LOGIN_ERROR = 'LOGIN_ERROR';
+
+
 export const CheckId =
     createPromoseThunk(CHECK_ID, memberAPI.checkId);
 export const CheckEmail =
     createPromoseThunk(CHECK_EMAIL, memberAPI.checkEmail);
 export const AddMember =
     createPromoseThunk(ADD_MEMBER, memberAPI.addMember);
+export const Login =
+    createPromoseThunk(LOGIN, memberAPI.login)
 
 const initialState = {
     checkId: reducerUtils.initial(),
     checkEmail: reducerUtils.initial(),
-    addMember: reducerUtils.initial()
+    addMember: reducerUtils.initial(),
+    login: reducerUtils.initial()
 };
 
 export default function member (state = initialState, action) {
@@ -50,6 +59,11 @@ export default function member (state = initialState, action) {
         case ADD_MEMBER_ERROR:
             return handleAsyncActions(ADD_MEMBER, 'addMember')
                 (state,action);
+        case LOGIN:
+        case LOGIN_SUCCESS:
+        case LOGIN_ERROR:
+            return handleAsyncActions(LOGIN, 'login')
+            (state,action);
         default:
             return state;
     }

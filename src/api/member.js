@@ -34,8 +34,18 @@ export const addMember = async formData => {
     });
 
     return response.data;
-}
+};
 
+export const login = async formData => {
+    const response = await axios({
+        method: 'post',
+        url: 'http://localhost:8080/member/login.do',
+        // data: { id, pw}
+        data: formData
+    });
+
+    return response.data;
+};
 
 
 
