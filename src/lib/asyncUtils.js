@@ -1,4 +1,4 @@
-export const createPromoseThunk = (type, promiseCreator) => {
+export const createPromiseThunk = (type, promiseCreator) => {
     const [SUCCESS, ERROR] = [`${type}_SUCCESS`,`${type}_ERROR`];
 
     return param => async dispatch => {
@@ -10,6 +10,23 @@ export const createPromoseThunk = (type, promiseCreator) => {
             dispatch({type:ERROR, payload: e, error: true});
         }
     };
+};
+
+export const createPromiseThunkWithFunction =
+    (type,promiseCreator,successFunction) => {
+
+        const [SUCCESS, ERROR] = [`${type}_SUCCESS`,`${type}_ERROR`];
+
+        return param => async dispatch => {
+            dispatch({type, param});
+            try{
+                const payload = await promiseCreator(param);
+                dispatch({type:SUCCESS, payload});
+                successFunction(payload);
+            } catch (e) {
+                dispatch({type:ERROR, payload: e, error: true});
+            }
+        };
 };
 
 export const reducerUtils = {

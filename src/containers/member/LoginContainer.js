@@ -1,8 +1,9 @@
-import React,{useState} from 'react';
+import React,{useState, useCallback} from 'react';
 import LoginForm from "../../components/member/login/LoginForm";
 import LoginTemplate from "../../components/member/login/LoginTemplate";
 import {useDispatch, useSelector} from "react-redux";
-import {Login} from "../../modules/member/member";
+import {clearLogin, Login} from "../../modules/member/member";
+import ErrorPage from "../../components/common/ErrorPage";
 
 function LoginContainer({history}) {
 
@@ -15,29 +16,58 @@ function LoginContainer({history}) {
         pw: ''
     });
 
-    const onChange = (e) =>{
+    const onChange = useCallback((e) =>{
         const {name, value} = e.target;
         setFormState({
             ...formState,
             [name]: value
         })
+    },[formState]);
+
+    const onSubmit = async (e) => {
+        e.preventDefault();
+        await dispatch(Login(formState));
+
+        setFormState({
+            ...formState,
+            id:'',
+            pw:''
+        });
     };
 
-    const onSubmit = (e) => {
-        e.preventDefault();
-        dispatch(Login(formState));
+    const alertMessage = async (loginState) => {
+        console.log('alertMessage 함수 실행');
+        const {loading, error} = loginState;
+        if(!loading && loginState.data){
+            const {idIsExisted, pwIsCorrect, emailIsAllowed, isLogOn}
+                = loginState.data;
+            if(!idIsExisted){
+                alert('아이디가 존재하지 않습니다.');
+            } else if (!pwIsCorrect){
+                alert('비밀번호가 다릅니다.');
+            } else if (!emailIsAllowed){
+                alert('이메일 인증이 필요합니다.');
+            } else if (!isLogOn){
+                alert('로그인 실패했습니다.');
+            } else {
+                history.push('/')
+            }
+        }
     };
 
     return(
-        <LoginTemplate>
-            <LoginForm
-                onChange={onChange}
-                onSubmit={onSubmit}
-                formState={formState}
-                loginState={loginState}
-                history={history}
-            />
-        </LoginTemplate>
+        <>
+            <LoginTemplate>
+                <LoginForm
+                    onChange={onChange}
+                    onSubmit={onSubmit}
+                    formState={formState}
+                    loginState={loginState}
+                    history={history}
+                    dispatch={dispatch}
+                />
+            </LoginTemplate>
+        </>
     )
 
 }

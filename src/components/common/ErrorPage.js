@@ -17,7 +17,7 @@ const ErrorText = styled.div`
 `;
 
 
-function ErrorPage() {
+function ErrorPage({text}) {
     return(
         <ErrorPageBlock>
             <IconContext.Provider
@@ -29,10 +29,15 @@ function ErrorPage() {
                 <BiErrorCircle/>
             </IconContext.Provider>
             <ErrorText>
-                실패했습니다 다시 시도해주세요
+                {text}
             </ErrorText>
         </ErrorPageBlock>
     )
 }
+
+ErrorPage.defaultProps = {
+    text: '실패했습니다 다시 시도해주세요'
+};
+
 
 export default ErrorPage;

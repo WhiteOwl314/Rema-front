@@ -1,8 +1,9 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import LoadingPage from "../../common/LoadingPage";
 import ErrorPage from "../../common/ErrorPage";
 import styled from "styled-components";
 import Button from "../../../lib/css/Button";
+import {clearLogin} from "../../../modules/member/member";
 
 const Form = styled.form`
     width: 100%;
@@ -53,18 +54,20 @@ function LoginForm({
     onSubmit,
     formState,
     loginState,
-    history
+    history,
+    dispatch
 }) {
-    let isLogOn = false;
+
+    useEffect(() => {
+        dispatch(clearLogin());
+        return()=>{
+        }
+    },[dispatch]);
 
     const {loading, error} = loginState;
-    if(loginState.data){
-        isLogOn = loginState.data.isLogOn;
-    }
 
     if(loading) return <LoadingPage/>;
     if(error) return <ErrorPage/>;
-    if(isLogOn) history.push('/')
 
     return(
         <Form

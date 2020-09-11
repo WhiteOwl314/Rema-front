@@ -1,8 +1,8 @@
 import * as memberAPI from '../../api/member';
 import {
-    createPromoseThunk,
+    createPromiseThunk,
     reducerUtils,
-    handleAsyncActions
+    handleAsyncActions, createPromiseThunkWithFunction
 } from "../../lib/asyncUtils";
 
 //아이디 체크
@@ -25,15 +25,19 @@ const LOGIN = 'LOGIN';
 const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 const LOGIN_ERROR = 'LOGIN_ERROR';
 
+//로그인 초기화
+const CLEAR_LOGIN = 'CLEAR_LOGIN';
+
 
 export const CheckId =
-    createPromoseThunk(CHECK_ID, memberAPI.checkId);
+    createPromiseThunk(CHECK_ID, memberAPI.checkId);
 export const CheckEmail =
-    createPromoseThunk(CHECK_EMAIL, memberAPI.checkEmail);
+    createPromiseThunk(CHECK_EMAIL, memberAPI.checkEmail);
 export const AddMember =
-    createPromoseThunk(ADD_MEMBER, memberAPI.addMember);
+    createPromiseThunk(ADD_MEMBER, memberAPI.addMember);
 export const Login =
-    createPromoseThunk(LOGIN, memberAPI.login)
+    createPromiseThunkWithFunction(LOGIN, memberAPI.login, memberAPI.loginAlertFunction);
+export const clearLogin = () => ({type: CLEAR_LOGIN});
 
 const initialState = {
     checkId: reducerUtils.initial(),
@@ -64,6 +68,11 @@ export default function member (state = initialState, action) {
         case LOGIN_ERROR:
             return handleAsyncActions(LOGIN, 'login')
             (state,action);
+        case CLEAR_LOGIN:
+            return {
+                ...state,
+                login: reducerUtils.initial()
+            };
         default:
             return state;
     }

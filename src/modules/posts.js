@@ -1,6 +1,6 @@
 import * as postAPI from '../api/posts';
 import {
-    createPromoseThunk,
+    createPromiseThunk,
     reducerUtils,
     handleAsyncActions,
     createPromiseThunkById,
@@ -16,7 +16,7 @@ const GET_POST_SUCCESS = 'GET_POST_SUCCESS';
 const GET_POST_ERROR = 'GET_POST_ERROR';
 
 export const getPosts =
-    createPromoseThunk(GET_POSTS, postAPI.getPosts);
+    createPromiseThunk(GET_POSTS, postAPI.getPosts);
 
 export const getPost =
     createPromiseThunkById(GET_POST, postAPI.getPostById);
