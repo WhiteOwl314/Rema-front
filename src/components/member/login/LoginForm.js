@@ -54,8 +54,8 @@ function LoginForm({
     onSubmit,
     formState,
     loginState,
-    history,
-    dispatch
+    dispatch,
+    history
 }) {
 
     useEffect(() => {
@@ -68,6 +68,11 @@ function LoginForm({
 
     if(loading) return <LoadingPage/>;
     if(error) return <ErrorPage/>;
+    if(loginState.data){
+        if(loginState.data.isLogOn){
+            history.push('/');
+        }
+    }
 
     return(
         <Form

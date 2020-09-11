@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4333ac0-a4be-47cb-922d-e29c8179feeb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/api/member.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/member.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/ErrorPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/ErrorPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/member/login/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/member/login/LoginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/member/LoginContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/member/LoginContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/asyncUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/asyncUtils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/member/member.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/member/member.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/posts.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,8 +50,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/lib/asyncUtils.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="320">
-                  <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
+                <state relative-caret-position="212">
+                  <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
                 </state>
               </provider>
             </entry>
@@ -156,11 +150,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/containers/member/LoginContainer.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="232">
-                  <caret line="66" column="29" selection-start-line="66" selection-start-column="29" selection-end-line="66" selection-end-column="29" />
+                <state relative-caret-position="250">
+                  <caret line="67" column="17" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
                   <folding>
                     <element signature="e#0#50#0" expanded="true" />
                   </folding>
@@ -168,11 +162,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/components/member/login/LoginForm.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="209">
-                  <caret line="68" column="19" lean-forward="true" selection-start-line="68" selection-start-column="19" selection-end-line="68" selection-end-column="19" />
+                <state relative-caret-position="269">
+                  <caret line="70" selection-start-line="70" selection-end-line="70" />
                   <folding>
                     <element signature="e#0#38#0" expanded="true" />
                   </folding>
@@ -259,11 +253,11 @@
         <option value="$PROJECT_DIR$/src/pages/member/LoginPage.js" />
         <option value="$PROJECT_DIR$/src/components/member/login/LoginTemplate.js" />
         <option value="$PROJECT_DIR$/src/components/common/ErrorPage.js" />
-        <option value="$PROJECT_DIR$/src/components/member/login/LoginForm.js" />
         <option value="$PROJECT_DIR$/src/lib/asyncUtils.js" />
         <option value="$PROJECT_DIR$/src/api/member.js" />
         <option value="$PROJECT_DIR$/src/modules/member/member.js" />
         <option value="$PROJECT_DIR$/src/containers/member/LoginContainer.js" />
+        <option value="$PROJECT_DIR$/src/components/member/login/LoginForm.js" />
       </list>
     </option>
   </component>
@@ -349,12 +343,12 @@
       <workItem from="1599568200967" duration="28994000" />
       <workItem from="1599713454789" duration="10257000" />
       <workItem from="1599725550985" duration="15616000" />
-      <workItem from="1599798023838" duration="13749000" />
+      <workItem from="1599798023838" duration="13953000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97088000" />
+    <option name="totallyTimeSpent" value="97292000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
@@ -376,7 +370,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="TypeScript" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32905984" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32905984" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
@@ -721,7 +715,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/member/memberForm/MemberForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
+        <state relative-caret-position="-206">
           <caret line="176" column="26" lean-forward="true" selection-start-line="176" selection-start-column="26" selection-end-line="176" selection-end-column="26" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -755,28 +749,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/member/member.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="38" column="54" selection-start-line="38" selection-start-column="54" selection-end-line="38" selection-end-column="54" />
+        <state relative-caret-position="175">
+          <caret line="32" column="16" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/member/login/LoginForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="68" column="19" lean-forward="true" selection-start-line="68" selection-start-column="19" selection-end-line="68" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/member/LoginContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="250">
+          <caret line="67" column="17" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>
@@ -785,8 +769,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/asyncUtils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
+        <state relative-caret-position="212">
+          <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/member/login/LoginForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
