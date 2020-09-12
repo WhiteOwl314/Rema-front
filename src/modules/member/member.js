@@ -41,6 +41,8 @@ const FIND_PW = 'FIND_PW';
 const FIND_PW_SUCCESS = 'FIND_PW_SUCCESS';
 const FIND_PW_ERROR = 'FIND_PW_ERROR';
 
+//비밀번호찾기 초기화
+const CLEAR_FIND_PW = 'CLEAR_FIND_PW';
 
 export const CheckId =
     createPromiseThunk(CHECK_ID, memberAPI.checkId);
@@ -55,7 +57,8 @@ export const FindId =
     createPromiseThunkWithFunction(FIND_ID, memberAPI.findId, memberAPI.findIdAlertFunction);
 export const ClearFindId = () => ({type: CLEAR_FIND_ID});
 export const FindPw =
-    createPromiseThunk(FIND_PW, memberAPI.findPw);
+    createPromiseThunkWithFunction(FIND_PW, memberAPI.findPw, memberAPI.findPwAlertFunction);
+export const ClearFindPw = () => ({type: CLEAR_FIND_PW});
 
 const initialState = {
     checkId: reducerUtils.initial(),
@@ -108,6 +111,11 @@ export default function member (state = initialState, action) {
         case FIND_PW_ERROR:
             return handleAsyncActions(FIND_PW, 'findPw')
             (state,action);
+        case CLEAR_FIND_PW:
+            return {
+                ...state,
+                findPw: reducerUtils.initial()
+            };
         default:
             return state;
     }

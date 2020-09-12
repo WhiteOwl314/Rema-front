@@ -92,6 +92,14 @@ export const findPw = async formData => {
     return response.data;
 };
 
+export const findPwAlertFunction = (payload) => {
+    const {idIsExisted, emailIsCorrect} = payload;
+    if(!idIsExisted){
+        alert('아이디가 존재하지 않습니다.');
+    } else if (!emailIsCorrect) {
+        alert('이메일이 다릅니다')
+    }
+};
 
 
 

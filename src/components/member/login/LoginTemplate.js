@@ -94,7 +94,6 @@ function LoginTemplate({children}) {
                 <Link
                     to="/member/findPw"
                     className='secondChild'
-
                 >
                     비밀번호 찾기
                 </Link>

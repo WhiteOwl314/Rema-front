@@ -25,8 +25,6 @@ function FindIdContainer({history}) {
     const onSubmit = (e) => {
         e.preventDefault();
         dispatch(FindId(formState));
-
-        setFormState({email:''});
     };
 
     return(

@@ -1,9 +1,9 @@
 import React from 'react';
-import LoginContainer from "../../containers/member/LoginContainer";
+import FindPwContainer from "../../containers/member/FindPwContainer";
 
 function FindPwPage({history}) {
     return(
-        <LoginContainer history={history}/>
+        <FindPwContainer history={history}/>
     );
 }
 
