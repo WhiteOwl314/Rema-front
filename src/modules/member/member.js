@@ -44,6 +44,11 @@ const FIND_PW_ERROR = 'FIND_PW_ERROR';
 //비밀번호찾기 초기화
 const CLEAR_FIND_PW = 'CLEAR_FIND_PW';
 
+//비밀번호 변경
+const UPDATE_PW = 'UPDATE_PW';
+const UPDATE_PW_SUCCESS = 'UPDATE_PW_SUCCESS';
+const UPDATE_PW_ERROR = 'UPDATE_PW_ERROR';
+
 export const CheckId =
     createPromiseThunk(CHECK_ID, memberAPI.checkId);
 export const CheckEmail =
@@ -59,6 +64,8 @@ export const ClearFindId = () => ({type: CLEAR_FIND_ID});
 export const FindPw =
     createPromiseThunkWithFunction(FIND_PW, memberAPI.findPw, memberAPI.findPwAlertFunction);
 export const ClearFindPw = () => ({type: CLEAR_FIND_PW});
+export const UpdatePw =
+    createPromiseThunkWithFunction(UPDATE_PW, memberAPI.updatePw, memberAPI.updatePwAlertFunction);
 
 const initialState = {
     checkId: reducerUtils.initial(),
@@ -66,7 +73,8 @@ const initialState = {
     addMember: reducerUtils.initial(),
     login: reducerUtils.initial(),
     findId: reducerUtils.initial(),
-    findPw: reducerUtils.initial()
+    findPw: reducerUtils.initial(),
+    updatePw: reducerUtils.initial()
 };
 
 export default function member (state = initialState, action) {
@@ -116,6 +124,11 @@ export default function member (state = initialState, action) {
                 ...state,
                 findPw: reducerUtils.initial()
             };
+        case UPDATE_PW:
+        case UPDATE_PW_SUCCESS:
+        case UPDATE_PW_ERROR:
+            return handleAsyncActions(UPDATE_PW, 'updatePw')
+            (state,action);
         default:
             return state;
     }

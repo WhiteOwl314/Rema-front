@@ -54,7 +54,7 @@ export const loginAlertFunction = (payload) => {
     if(!idIsExisted){
         alert('아이디가 존재하지 않습니다.');
     } else if (!pwIsCorrect){
-        alert('비밀번호가 다릅니다.');
+        alert('비밀번호가 맞지 않습니다.');
     } else if (!emailIsAllowed){
         alert('이메일 인증이 필요합니다.');
     } else if (!isLogOn){
@@ -101,7 +101,23 @@ export const findPwAlertFunction = (payload) => {
     }
 };
 
+export const updatePw = async formData => {
+    const response = await axios({
+        method: 'post',
+        url: 'http://localhost:8080/member/updatePw.do',
+        // data: {pw, oldPw}
+        data: formData
+    });
 
+    return response.data;
+};
+
+export const updatePwAlertFunction = (payload) => {
+    const {pwIsCorrect} = payload;
+    if(!pwIsCorrect){
+        alert('비밀번호가 맞지 않습니다..');
+    }
+};
 
 
 

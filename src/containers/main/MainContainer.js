@@ -9,6 +9,16 @@ const MainContainerBlock = styled.div`
     position: relative;
 `;
 
+const MainContent = styled.div`
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding-top: 50px;
+    padding-left: 50px;
+    box-sizing: border-box;
+`;
+
+
 function MainContainer({history,children}) {
 
     return(
@@ -19,7 +29,9 @@ function MainContainer({history,children}) {
             <MainSide
                 history={history}
             />
-            {children}
+            <MainContent>
+                {children}
+            </MainContent>
         </MainContainerBlock>
     )
 }

@@ -5,7 +5,7 @@ import {IconContext} from "react-icons";
 import {MdLibraryBooks} from "react-icons/md";
 import {BiTask} from "react-icons/bi";
 import {GoTrashcan} from "react-icons/go";
-import {lighten, darken} from 'polished';
+import {darken} from 'polished';
 
 const MainSideBlock = styled.div`
     ${({theme}) => {
@@ -16,9 +16,11 @@ const MainSideBlock = styled.div`
     }}
     width: 50px;
     height: 100%;
-    padding-top: 40px;
+    padding-top: 50px;
     box-sizing: border-box;
     background: white;
+    position: absolute;
+    z-index: 100;
 `;
 
 const SideMenuItem = styled.div`

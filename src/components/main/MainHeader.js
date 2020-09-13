@@ -9,12 +9,13 @@ const MainHeaderBlock = styled.div`
         `;
     }}
     width: 100%;
-    height: 45px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: absolute;
     background: white;
+    z-index: 1000;
 `;
 
 const HeaderLogo = styled.div`
@@ -24,7 +25,7 @@ const HeaderLogo = styled.div`
             color: ${fourthC};
         `;
     }}
-    font-size: 22px;
+    font-size: 23px;
     cursor: pointer;
     margin-left: 15px;
 `;
@@ -52,9 +53,13 @@ function MainHeader({history}) {
                 REMA
             </HeaderLogo>
             <HeaderMenu>
-                <HeaderMenuItem>회원정보</HeaderMenuItem>
-                <HeaderMenuItem>로그아웃</HeaderMenuItem>
                 <HeaderMenuItem>설정</HeaderMenuItem>
+                <HeaderMenuItem
+                    onClick={()=>history.push('/mypage')}
+                >
+                    회원정보
+                </HeaderMenuItem>
+                <HeaderMenuItem>로그아웃</HeaderMenuItem>
             </HeaderMenu>
         </MainHeaderBlock>
     )
