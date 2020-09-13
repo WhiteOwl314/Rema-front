@@ -9,11 +9,12 @@ const MainHeaderBlock = styled.div`
         `;
     }}
     width: 100%;
-    height: 40px;
+    height: 45px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: absolute;
+    background: white;
 `;
 
 const HeaderLogo = styled.div`
@@ -23,7 +24,7 @@ const HeaderLogo = styled.div`
             color: ${fourthC};
         `;
     }}
-    font-size: 20px;
+    font-size: 22px;
     cursor: pointer;
     margin-left: 15px;
 `;
@@ -45,7 +46,11 @@ const HeaderMenuItem = styled.div`
 function MainHeader({history}) {
     return(
         <MainHeaderBlock>
-            <HeaderLogo>REMA</HeaderLogo>
+            <HeaderLogo
+                onClick={()=>history.push('/')}
+            >
+                REMA
+            </HeaderLogo>
             <HeaderMenu>
                 <HeaderMenuItem>회원정보</HeaderMenuItem>
                 <HeaderMenuItem>로그아웃</HeaderMenuItem>

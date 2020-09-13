@@ -34,26 +34,6 @@ function LoginContainer({history}) {
         });
     };
 
-    const alertMessage = async (loginState) => {
-        console.log('alertMessage 함수 실행');
-        const {loading, error} = loginState;
-        if(!loading && loginState.data){
-            const {idIsExisted, pwIsCorrect, emailIsAllowed, isLogOn}
-                = loginState.data;
-            if(!idIsExisted){
-                alert('아이디가 존재하지 않습니다.');
-            } else if (!pwIsCorrect){
-                alert('비밀번호가 다릅니다.');
-            } else if (!emailIsAllowed){
-                alert('이메일 인증이 필요합니다.');
-            } else if (!isLogOn){
-                alert('로그인 실패했습니다.');
-            } else {
-                history.push('/')
-            }
-        }
-    };
-
     return(
         <>
             <LoginTemplate>
