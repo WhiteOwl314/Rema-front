@@ -1,8 +1,9 @@
 import React from 'react';
 import {createGlobalStyle, ThemeProvider} from "styled-components";
-import {Route} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import MemberPage from "./pages/member/MemberPage";
 import MemberFormSuccessPage from "./components/member/memberForm/MemberFormSuccessPage";
+import MainPage from "./pages/main/MainPage";
 
 const GlobalStyle = createGlobalStyle`
     html, body, #root{
@@ -34,14 +35,20 @@ function App() {
               }}
           >
               <GlobalStyle/>
-              <Route
-                  path="/member"
-                  component={MemberPage}
-              />
-              <Route
-                  path="/test"
-                  component={MemberFormSuccessPage}
-              />
+              <Switch>
+                  <Route
+                      path="/member"
+                      component={MemberPage}
+                  />
+                  <Route
+                      path="/"
+                      component={MainPage}
+                  />
+                  <Route
+                      path="/test"
+                      component={MemberFormSuccessPage}
+                  />
+              </Switch>
           </ThemeProvider>
   );
 }
