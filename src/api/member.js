@@ -119,6 +119,15 @@ export const updatePwAlertFunction = (payload) => {
     }
 };
 
+export const loginCheck = async () => {
+    const response = await axios({
+        method: 'post',
+        url: 'http://localhost:8080/member/loginCheck.do'
+        // data: 없음
+    });
+
+    return response.data;
+};
 
 
 

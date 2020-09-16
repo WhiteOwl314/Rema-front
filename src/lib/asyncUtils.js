@@ -30,6 +30,33 @@ export const createPromiseThunkWithFunction =
         };
 };
 
+export const createPromiseThunkForJwt =
+    (type,promiseCreator,successFunction) => {
+
+        const [SUCCESS, ERROR] = [`${type}_SUCCESS`,`${type}_ERROR`];
+
+        return param => async dispatch => {
+            dispatch({type, param});
+            try{
+                const payload = await promiseCreator(param);
+                const {emailIsAllowed} = payload;
+
+
+                if (!emailIsAllowed){
+                    console.log(payload);
+                    alert('이메일 인증이 필요합니다.');
+                } else {
+                    successFunction(param.username, payload.token);
+                }
+                dispatch({type:SUCCESS, payload});
+
+            } catch (e) {
+                alert('로그인 실패했습니다.');
+                dispatch({type:ERROR, payload: e, error: true});
+            }
+        };
+    };
+
 export const reducerUtils = {
     initial: (initialData = null) => ({
         loading: false,

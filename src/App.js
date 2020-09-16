@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import {createGlobalStyle, ThemeProvider} from "styled-components";
 import {Route, Switch} from 'react-router-dom';
 import MemberPage from "./pages/member/MemberPage";
@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
+
   return (
           <ThemeProvider
               theme={{

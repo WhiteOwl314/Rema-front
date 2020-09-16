@@ -1,18 +1,26 @@
-import React,{useState, useCallback} from 'react';
+import React, {useState, useCallback, useEffect} from 'react';
 import LoginForm from "../../components/member/login/LoginForm";
 import LoginTemplate from "../../components/member/login/LoginTemplate";
 import {useDispatch, useSelector} from "react-redux";
-import {Login} from "../../modules/member/member";
+import {clearLogin, Login} from "../../modules/member/member";
+import {executeJwtAuthenticationService, registerSuccessfulLoginForJwt} from "../../api/AuthenticationService";
 
 function LoginContainer({history}) {
+
 
     const loginState =
         useSelector(state => state.member.login);
     const dispatch = useDispatch();
 
+    useEffect(() => {
+        dispatch(clearLogin());
+        return()=>{
+        }
+    },[dispatch]);
+
     const [formState, setFormState] = useState({
-        id: '',
-        pw: ''
+        username: '',
+        password: ''
     });
 
     const onChange = useCallback((e) =>{
@@ -25,12 +33,13 @@ function LoginContainer({history}) {
 
     const onSubmit = (e) => {
         e.preventDefault();
+
         dispatch(Login(formState));
 
         setFormState({
             ...formState,
-            id:'',
-            pw:''
+            username:'',
+            password:''
         });
     };
 

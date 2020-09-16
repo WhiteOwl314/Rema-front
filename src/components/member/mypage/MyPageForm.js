@@ -68,10 +68,7 @@ const FormItemBody = styled.div`
 
 const PasswordItem = styled.div`
     display: flex;
-    &+&{
-        margin-left: 40px;
-    }
-    
+    width: 50%;
 `;
 
 const PasswordBody = styled.div`

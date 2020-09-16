@@ -1,8 +1,9 @@
 import * as memberAPI from '../../api/member';
+import * as JwtAPI from '../../api/AuthenticationService';
 import {
     createPromiseThunk,
     reducerUtils,
-    handleAsyncActions, createPromiseThunkWithFunction
+    handleAsyncActions, createPromiseThunkWithFunction, createPromiseThunkForJwt
 } from "../../lib/asyncUtils";
 
 //아이디 체크
@@ -49,6 +50,11 @@ const UPDATE_PW = 'UPDATE_PW';
 const UPDATE_PW_SUCCESS = 'UPDATE_PW_SUCCESS';
 const UPDATE_PW_ERROR = 'UPDATE_PW_ERROR';
 
+//로그인 체크
+const LOGIN_CHECK = 'LOGIN_CHECK';
+const LOGIN_CHECK_SUCCESS = 'LOGIN_CHECK_SUCCESS';
+const LOGIN_CHECK_ERROR = 'LOGIN_CHECK_ERROR';
+
 export const CheckId =
     createPromiseThunk(CHECK_ID, memberAPI.checkId);
 export const CheckEmail =
@@ -56,7 +62,7 @@ export const CheckEmail =
 export const AddMember =
     createPromiseThunk(ADD_MEMBER, memberAPI.addMember);
 export const Login =
-    createPromiseThunkWithFunction(LOGIN, memberAPI.login, memberAPI.loginAlertFunction);
+    createPromiseThunkForJwt(LOGIN, JwtAPI.executeJwtAuthenticationService, JwtAPI.registerSuccessfulLoginForJwt);
 export const clearLogin = () => ({type: CLEAR_LOGIN});
 export const FindId =
     createPromiseThunkWithFunction(FIND_ID, memberAPI.findId, memberAPI.findIdAlertFunction);
@@ -66,6 +72,8 @@ export const FindPw =
 export const ClearFindPw = () => ({type: CLEAR_FIND_PW});
 export const UpdatePw =
     createPromiseThunkWithFunction(UPDATE_PW, memberAPI.updatePw, memberAPI.updatePwAlertFunction);
+export const LoginCheck =
+    createPromiseThunk(LOGIN_CHECK, memberAPI.loginCheck);
 
 const initialState = {
     checkId: reducerUtils.initial(),
@@ -74,7 +82,8 @@ const initialState = {
     login: reducerUtils.initial(),
     findId: reducerUtils.initial(),
     findPw: reducerUtils.initial(),
-    updatePw: reducerUtils.initial()
+    updatePw: reducerUtils.initial(),
+    loginCheck: reducerUtils.initial()
 };
 
 export default function member (state = initialState, action) {
@@ -128,6 +137,11 @@ export default function member (state = initialState, action) {
         case UPDATE_PW_SUCCESS:
         case UPDATE_PW_ERROR:
             return handleAsyncActions(UPDATE_PW, 'updatePw')
+            (state,action);
+        case LOGIN_CHECK:
+        case LOGIN_CHECK_SUCCESS:
+        case LOGIN_CHECK_ERROR:
+            return handleAsyncActions(LOGIN_CHECK, 'loginCheck')
             (state,action);
         default:
             return state;

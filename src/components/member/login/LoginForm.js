@@ -1,9 +1,8 @@
-import React,{useEffect} from 'react';
+import React from 'react';
 import LoadingPage from "../../common/LoadingPage";
 import ErrorPage from "../../common/ErrorPage";
 import styled from "styled-components";
 import Button from "../../../lib/css/Button";
-import {clearLogin} from "../../../modules/member/member";
 
 const Form = styled.form`
     width: 100%;
@@ -58,18 +57,12 @@ function LoginForm({
     history
 }) {
 
-    useEffect(() => {
-        dispatch(clearLogin());
-        return()=>{
-        }
-    },[dispatch]);
 
     const {loading, error} = loginState;
 
     if(loading) return <LoadingPage/>;
-    if(error) return <ErrorPage/>;
     if(loginState.data){
-        if(loginState.data.isLogOn){
+        if(loginState.data.logOn){
             history.push('/');
         }
     }
@@ -80,20 +73,20 @@ function LoginForm({
         >
             <InputBlock>
                 <Input
-                    name='id'
+                    name='username'
                     type='text'
                     onChange={onChange}
-                    value={formState.id}
+                    value={formState.username}
                     placeholder='아이디'
                 >
                 </Input>
             </InputBlock>
             <InputBlock>
                 <Input
-                    name="pw"
+                    name="password"
                     type="password"
                     onChange={onChange}
-                    value={formState.pw}
+                    value={formState.password}
                     placeholder='비밀번호'
                 />
             </InputBlock>
