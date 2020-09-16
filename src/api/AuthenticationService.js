@@ -65,3 +65,12 @@ export const getLoggedInUserName = () => {
     if(user===null) return '';
     return user;
 };
+
+//로그인 체크
+export const loginCheck = async () => {
+    return await axios({
+        method: 'post',
+        url: 'http://localhost:8080/loginCheck'
+        // data: 없음
+    });
+};

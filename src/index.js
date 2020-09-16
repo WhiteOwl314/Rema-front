@@ -3,35 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {applyMiddleware, createStore} from "redux";
 import {Provider} from 'react-redux'
-import rootReducer from './modules';
-import logger from 'redux-logger';
-import {composeWithDevTools} from "redux-devtools-extension";
-import ReduxThunk from 'redux-thunk';
-import {BrowserRouter,Route} from 'react-router-dom';
+import {createBrowserHistory} from "history";
+import {ConnectedRouter} from "connected-react-router";
+import {configureStore} from "./store";
 
-const middlewares = [
-    ReduxThunk,
-    logger
-];
-const enhancer = composeWithDevTools(
-    applyMiddleware(...middlewares));
-
-const store = createStore(
-    rootReducer,
-    enhancer
-);
+const history = createBrowserHistory();
+const store = configureStore(history);
 
 ReactDOM.render(
   <React.StrictMode>
-      <BrowserRouter>
-          <Route>
               <Provider store={store}>
-                  <App />
+                  <ConnectedRouter history={history}>
+                      <App />
+                  </ConnectedRouter>
               </Provider>
-          </Route>
-      </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

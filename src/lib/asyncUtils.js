@@ -1,3 +1,5 @@
+import {push} from 'connected-react-router';
+
 export const createPromiseThunk = (type, promiseCreator) => {
     const [SUCCESS, ERROR] = [`${type}_SUCCESS`,`${type}_ERROR`];
 
@@ -8,6 +10,7 @@ export const createPromiseThunk = (type, promiseCreator) => {
             dispatch({type:SUCCESS, payload});
         } catch (e) {
             dispatch({type:ERROR, payload: e, error: true});
+            console.log(e);
         }
     };
 };
@@ -26,6 +29,7 @@ export const createPromiseThunkWithFunction =
                 console.log(payload);
             } catch (e) {
                 dispatch({type:ERROR, payload: e, error: true});
+                console.log(e);
             }
         };
 };
@@ -56,6 +60,27 @@ export const createPromiseThunkForJwt =
             }
         };
     };
+
+export const createPromiseThunkWithPromise = (type, promiseCreator) => {
+    const [SUCCESS, ERROR] = [`${type}_SUCCESS`,`${type}_ERROR`];
+
+    return param => async (dispatch,getState,{history}) => {
+        dispatch({type, param});
+
+        await promiseCreator(param)
+            .then(response => {
+                const payload = response.data;
+                dispatch({type:SUCCESS, payload});
+            })
+            .catch(error => {
+                const status = error.response.status;
+                const payload = error.data;
+                dispatch({type:ERROR, payload: status, error: true});
+                dispatch(push('/member/login'));
+            });
+    };
+};
+
 
 export const reducerUtils = {
     initial: (initialData = null) => ({

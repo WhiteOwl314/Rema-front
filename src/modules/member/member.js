@@ -3,7 +3,7 @@ import * as JwtAPI from '../../api/AuthenticationService';
 import {
     createPromiseThunk,
     reducerUtils,
-    handleAsyncActions, createPromiseThunkWithFunction, createPromiseThunkForJwt
+    handleAsyncActions, createPromiseThunkWithFunction, createPromiseThunkForJwt, createPromiseThunkWithPromise
 } from "../../lib/asyncUtils";
 
 //아이디 체크
@@ -73,7 +73,7 @@ export const ClearFindPw = () => ({type: CLEAR_FIND_PW});
 export const UpdatePw =
     createPromiseThunkWithFunction(UPDATE_PW, memberAPI.updatePw, memberAPI.updatePwAlertFunction);
 export const LoginCheck =
-    createPromiseThunk(LOGIN_CHECK, memberAPI.loginCheck);
+    createPromiseThunkWithPromise(LOGIN_CHECK, JwtAPI.loginCheck);
 
 const initialState = {
     checkId: reducerUtils.initial(),

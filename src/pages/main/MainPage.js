@@ -1,48 +1,35 @@
 import React,{useEffect} from 'react';
 import MainContainer from "../../containers/main/MainContainer";
-import {Route} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import MyPagePage from "../member/MyPagePage";
 import {useDispatch, useSelector} from "react-redux";
-import {LoginCheck} from "../../modules/member/member";
-import LoadingPage from "../../components/common/LoadingPage";
+import Background from "../../lib/css/Background";
+import Page404 from "../../components/error/Page404";
 
 function MainPage({match, history}) {
 
-    const loginCeckState =
+    const loginState =
         useSelector(state => state.member.loginCheck);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(LoginCheck());
         document.title = "REMA";
     }, []);
-
-    const {loading, error} = loginCeckState;
-
-    if(loginCeckState.data){
-        const {idIsExisted, pwIsCorrect, isLogOn}
-            = loginCeckState.data;
-        if(
-            !idIsExisted
-            || !pwIsCorrect
-            || !isLogOn
-        ){
-            history.push('/member/login');
-        }
-    }
-
-    if(loading) return <LoadingPage/>;
-    if(error) history.push('/member/login');
 
     return(
         <MainContainer
             history={history}
         >
-            <Route
-                path={`${match.path}mypage`}
-                component={MyPagePage}
-                exact
-            />
+            <Switch>
+                <Route
+                    path={`${match.path}mypage`}
+                    component={MyPagePage}
+                    exact
+                />
+                <Route
+                    comonent={Page404}
+                />
+            </Switch>
         </MainContainer>
     )
 }
