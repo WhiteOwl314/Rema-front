@@ -1,4 +1,3 @@
-//checkId
 import axios from "axios";
 
 export const checkId = async id => {

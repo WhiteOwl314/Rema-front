@@ -4,6 +4,7 @@ import member from './modules/member/member';
 import mypage from './modules/member/mypage';
 import ReduxThunk from "redux-thunk";
 import logger from "redux-logger";
+import {composeWithDevTools} from "redux-devtools-extension";
 
 //리듀서
 
@@ -14,10 +15,12 @@ export function configureStore(history) {
             mypage,
             router: connectRouter(history)
         }),
-        applyMiddleware(
-            ReduxThunk.withExtraArgument({history: history}),
-            routerMiddleware(history),
-            logger
+        composeWithDevTools(
+            applyMiddleware(
+                ReduxThunk.withExtraArgument({history: history}),
+                routerMiddleware(history),
+                logger
+            )
         )
     )
 }

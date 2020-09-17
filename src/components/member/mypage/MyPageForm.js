@@ -91,11 +91,12 @@ const PasswordButtonBlock = styled.div`
 const Input = styled.input`
     width: 150px;
     box-sizing: border-box;
-    font-size: 13px;
+    font-size: 11px;
     outline: none;
     border-radius: 3px;
     background-color: #f7f7f7;
     border: 1px solid #e2e2e2;
+    padding: 2px 0px 2px 5px;
     
     &::placeholder{
         font-weight: bold;
@@ -106,19 +107,24 @@ const Input = styled.input`
 function MyPageForm({
                         getMemberState,
     onChange,
-                        inputChangeState
+                        inputChangeState,
+                        updateButtonState,
+                        onUpdateButtonClick,
+    onSubmit
 
 }) {
 
     const {id, oldPw, pw, name, email} = inputChangeState;
-    const {loading} = getMemberState;
+    const {canChangePw, canChangeName, canChangeEmail} = updateButtonState;
 
 
-    if(loading) return <LoadingPage/>;
+    if(getMemberState.loading) return <LoadingPage/>;
 
     return(
         <MyPageFormBlock>
-            <Form>
+            <Form
+                onSubmit={onSubmit}
+            >
                 <FormItem>
                     <FormItemTitle>
                         <TitlePadding>
@@ -130,26 +136,46 @@ function MyPageForm({
                     </FormItemBody>
                 </FormItem>
                 <FormItem>
-                    <PasswordItem>
-                        <FormItemTitle>
-                            <TitlePadding>
-                                비밀번호
-                            </TitlePadding>
-                        </FormItemTitle>
-                        <PasswordBody>
-                            <Input/>
-                        </PasswordBody>
-                    </PasswordItem>
-                    <PasswordItem>
-                        <FormItemTitle>
-                            <TitlePadding>
-                                비밀번호 확인
-                            </TitlePadding>
-                        </FormItemTitle>
-                        <PasswordBody>
-                            <Input/>
-                        </PasswordBody>
-                    </PasswordItem>
+                    {
+                        canChangePw
+                            ? (
+                                <div>
+                                    <PasswordItem>
+                                        <FormItemTitle>
+                                            <TitlePadding>
+                                                비밀번호
+                                            </TitlePadding>
+                                        </FormItemTitle>
+                                        <PasswordBody>
+                                            <Input/>
+                                        </PasswordBody>
+                                    </PasswordItem>
+                                    <PasswordItem>
+                                        <FormItemTitle>
+                                            <TitlePadding>
+                                                비밀번호 확인
+                                            </TitlePadding>
+                                        </FormItemTitle>
+                                        <PasswordBody>
+                                            <Input/>
+                                        </PasswordBody>
+                                    </PasswordItem>
+                                </div>
+
+                            )
+                            : (
+                                <PasswordItem>
+                                    <FormItemTitle>
+                                        <TitlePadding>
+                                            비밀번호
+                                        </TitlePadding>
+                                    </FormItemTitle>
+                                    <PasswordBody>
+                                        ****
+                                    </PasswordBody>
+                                </PasswordItem>
+                            )
+                    }
                     <PasswordButtonBlock>
                         <Button
                             style={{
@@ -159,6 +185,8 @@ function MyPageForm({
                                 borderRadius: '2px'
                             }}
                             backgroundColor='fourthC'
+                            id='canChangePw'
+                            onClick={onUpdateButtonClick}
                         >
                             수정
                         </Button>

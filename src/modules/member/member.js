@@ -1,4 +1,4 @@
-import * as memberAPI from '../../api/member';
+import * as memberAPI from '../../api/member/member';
 import * as JwtAPI from '../../api/AuthenticationService';
 import {
     createPromiseThunk,
