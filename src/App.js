@@ -71,12 +71,16 @@ function App() {
                       component={MemberPage}
                   />
                   <Route
-                      path="/"
-                      component={MainPage}
+                      path="/404"
+                      component={Page404}
                   />
                   <Route
                       path="/test"
                       component={MemberFormSuccessPage}
+                  />
+                  <Route
+                      path="/"
+                      component={MainPage}
                   />
                   <Route
                       comonent={Page404}

@@ -76,7 +76,15 @@ export const createPromiseThunkWithPromise = (type, promiseCreator) => {
                 const status = error.response.status;
                 const payload = error.data;
                 dispatch({type:ERROR, payload: status, error: true});
-                dispatch(push('/member/login'));
+                if(
+                    status === 403
+                    || status === 401
+                ){
+                    dispatch(push('/member/login'));
+                }
+                if(status === 404){
+                    dispatch(push('/404'))
+                }
             });
     };
 };
