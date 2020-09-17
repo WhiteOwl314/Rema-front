@@ -55,10 +55,15 @@ const LOGIN_CHECK = 'LOGIN_CHECK';
 const LOGIN_CHECK_SUCCESS = 'LOGIN_CHECK_SUCCESS';
 const LOGIN_CHECK_ERROR = 'LOGIN_CHECK_ERROR';
 
+//회원정보 가져오기
+const GET_MEMBER = 'GET_MEMBER';
+const GET_MEMBER_SUCCESS = 'GET_MEMBER_SUCCESS';
+const GET_MEMBER_ERROR = 'GET_MEMBER_ERROR';
+
 export const CheckId =
-    createPromiseThunk(CHECK_ID, memberAPI.checkId);
+    createPromiseThunkWithPromise(CHECK_ID, memberAPI.checkId);
 export const CheckEmail =
-    createPromiseThunk(CHECK_EMAIL, memberAPI.checkEmail);
+    createPromiseThunkWithPromise(CHECK_EMAIL, memberAPI.checkEmail);
 export const AddMember =
     createPromiseThunk(ADD_MEMBER, memberAPI.addMember);
 export const Login =
@@ -74,6 +79,8 @@ export const UpdatePw =
     createPromiseThunkWithFunction(UPDATE_PW, memberAPI.updatePw, memberAPI.updatePwAlertFunction);
 export const LoginCheck =
     createPromiseThunkWithPromise(LOGIN_CHECK, JwtAPI.loginCheck);
+export const GetMember =
+    createPromiseThunkWithPromise(GET_MEMBER, memberAPI.getMember);
 
 const initialState = {
     checkId: reducerUtils.initial(),
@@ -83,7 +90,8 @@ const initialState = {
     findId: reducerUtils.initial(),
     findPw: reducerUtils.initial(),
     updatePw: reducerUtils.initial(),
-    loginCheck: reducerUtils.initial()
+    loginCheck: reducerUtils.initial(),
+    getMember: reducerUtils.initial()
 };
 
 export default function member (state = initialState, action) {
@@ -142,6 +150,11 @@ export default function member (state = initialState, action) {
         case LOGIN_CHECK_SUCCESS:
         case LOGIN_CHECK_ERROR:
             return handleAsyncActions(LOGIN_CHECK, 'loginCheck')
+            (state,action);
+        case GET_MEMBER:
+        case GET_MEMBER_SUCCESS:
+        case GET_MEMBER_ERROR:
+            return handleAsyncActions(GET_MEMBER, 'getMember')
             (state,action);
         default:
             return state;

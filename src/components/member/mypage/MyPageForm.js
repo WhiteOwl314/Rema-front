@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled,{css} from "styled-components";
+import LoadingPage from "../../common/LoadingPage";
 import Button from "../../../lib/css/Button";
 
 const MyPageFormBlock = styled.div`
@@ -102,7 +103,19 @@ const Input = styled.input`
     }
 `;
 
-function MyPageForm() {
+function MyPageForm({
+                        getMemberState,
+    onChange,
+                        inputChangeState
+
+}) {
+
+    const {id, oldPw, pw, name, email} = inputChangeState;
+    const {loading} = getMemberState;
+
+
+    if(loading) return <LoadingPage/>;
+
     return(
         <MyPageFormBlock>
             <Form>
@@ -113,7 +126,7 @@ function MyPageForm() {
                         </TitlePadding>
                     </FormItemTitle>
                     <FormItemBody>
-                        skstjdwn914
+                        {id}
                     </FormItemBody>
                 </FormItem>
                 <FormItem>
@@ -158,7 +171,11 @@ function MyPageForm() {
                         </TitlePadding>
                     </FormItemTitle>
                     <FormItemBody>
-                        <Input/>
+                        <Input
+                            name='name'
+                            onChange={onChange}
+                            value={name}
+                        />
                         <Button
                             style={{
                                 width: '40px',
@@ -181,7 +198,11 @@ function MyPageForm() {
                         </TitlePadding>
                     </FormItemTitle>
                     <FormItemBody>
-                        <Input/>
+                        <Input
+                            name='email'
+                            value={email}
+                            onChange={onChange}
+                        />
                         <Button
                             style={{
                                 width: '40px',

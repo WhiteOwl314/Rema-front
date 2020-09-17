@@ -13,6 +13,7 @@ function LoginContainer({history}) {
     const dispatch = useDispatch();
 
     useEffect(() => {
+        document.title = "REMA | LOGIN";
         dispatch(clearLogin());
         return()=>{
         }

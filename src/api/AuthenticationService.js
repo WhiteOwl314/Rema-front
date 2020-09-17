@@ -1,5 +1,21 @@
 import axios from 'axios';
 
+axios.interceptors.request.use(
+    config => {
+        const token = localStorage.getItem('token');
+        if(token){
+            console.log('토큰 탑재');
+            config.headers['Authorization'] = 'Bearer ' + token;
+        }
+        // config.headers['Content-Type'] = 'application/json';
+        return config;
+    },
+    error => {
+        Promise.reject(error)
+    }
+);
+
+
 //send username, password to the Server
 export const executeJwtAuthenticationService = async formData => {
     const response = await axios({
@@ -13,7 +29,7 @@ export const executeJwtAuthenticationService = async formData => {
 };
 
 export const registerSuccessfulLoginForJwt = (username, token) => {
-    console.log('===registerSuccessfulLoginForLoginForJwt');
+    console.log('===registerSuccessfulLoginForLoginForJwt===');
     localStorage.setItem('token',token);
     localStorage.setItem('authenticatedUser',username);
 
@@ -29,6 +45,7 @@ export const setupAxiosInterceptors = () => {
         config => {
             const token = localStorage.getItem('token');
             if(token){
+                console.log('토큰 탑재');
                 config.headers['Authorization'] = 'Bearer ' + token;
             }
             // config.headers['Content-Type'] = 'application/json';
@@ -68,6 +85,7 @@ export const getLoggedInUserName = () => {
 
 //로그인 체크
 export const loginCheck = async () => {
+
     return await axios({
         method: 'post',
         url: 'http://localhost:8080/loginCheck'

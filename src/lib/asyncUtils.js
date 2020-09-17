@@ -39,7 +39,7 @@ export const createPromiseThunkForJwt =
 
         const [SUCCESS, ERROR] = [`${type}_SUCCESS`,`${type}_ERROR`];
 
-        return param => async dispatch => {
+        return param => async (dispatch, getState, {history}) => {
             dispatch({type, param});
             try{
                 const payload = await promiseCreator(param);
@@ -53,6 +53,7 @@ export const createPromiseThunkForJwt =
                     successFunction(param.username, payload.token);
                 }
                 dispatch({type:SUCCESS, payload});
+                history.push('/');
 
             } catch (e) {
                 alert('로그인 실패했습니다.');
@@ -75,7 +76,7 @@ export const createPromiseThunkWithPromise = (type, promiseCreator) => {
             .catch(error => {
                 const status = error.response.status;
                 const payload = error.data;
-                dispatch({type:ERROR, payload: status, error: true});
+                dispatch({type:ERROR, payload: payload, error: true});
                 if(
                     status === 403
                     || status === 401

@@ -2,27 +2,23 @@
 import axios from "axios";
 
 export const checkId = async id => {
-    const response = await axios({
+    return await axios({
         method: 'post',
         url: 'http://localhost:8080/member/checkId.do',
         data: {
             'id': id
         }
     });
-
-    return response.data;
 };
 
 export const checkEmail = async email => {
-    const response = await axios({
+    return await axios({
         method: 'post',
         url: 'http://localhost:8080/member/checkEmail.do',
         data: {
             'email': email
         }
     });
-
-    return response.data;
 };
 
 export const addMember = async formData => {
@@ -47,20 +43,6 @@ export const login = async formData => {
     return response.data;
 };
 
-
-export const loginAlertFunction = (payload) => {
-    const {idIsExisted, pwIsCorrect, emailIsAllowed, isLogOn}
-        = payload;
-    if(!idIsExisted){
-        alert('아이디가 존재하지 않습니다.');
-    } else if (!pwIsCorrect){
-        alert('비밀번호가 맞지 않습니다.');
-    } else if (!emailIsAllowed){
-        alert('이메일 인증이 필요합니다.');
-    } else if (!isLogOn){
-        alert('로그인 실패했습니다.');
-    }
-};
 
 export const findId = async formState => {
     console.log(formState);
@@ -119,18 +101,27 @@ export const updatePwAlertFunction = (payload) => {
     }
 };
 
-export const loginCheck = async () => {
-    const response = await axios({
+// export const loginCheck = async () => {
+//     const response = await axios({
+//         method: 'post',
+//         url: 'http://localhost:8080/member/loginCheck.do'
+//         // data: 없음
+//     });
+//
+//     return response.data;
+// };
+//
+
+
+//마이페이지 회원정보 조회
+export const getMember = async () => {
+
+    return await axios({
         method: 'post',
-        url: 'http://localhost:8080/member/loginCheck.do'
+        url: 'http://localhost:8080/member/getMember'
         // data: 없음
     });
-
-    return response.data;
 };
-
-
-
 
 
 

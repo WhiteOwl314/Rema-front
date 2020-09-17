@@ -5,7 +5,6 @@ import LoginPage from "./LoginPage";
 import MemberFormPage from "./MemberFormPage";
 import FindIdPage from "./FindIdPage";
 import FindPwPage from "./FindPwPage";
-import {ThemeProvider} from "styled-components";
 import Page404 from "../../components/error/Page404";
 
 function MemberPage({match}) {

@@ -7,8 +7,6 @@ import MainPage from "./pages/main/MainPage";
 import {useDispatch, useSelector} from "react-redux";
 import {LoginCheck} from "./modules/member/member";
 import Page404 from "./components/error/Page404";
-import axios from 'axios';
-import {useHistory} from "react-router";
 
 const GlobalStyle = createGlobalStyle`
     html, body, #root{
@@ -23,29 +21,11 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
 
-    const history = useHistory();
-
-    const loginCheckState =
-        useSelector(state => state.member.loginCheck);
     const dispatch = useDispatch();
-    const {loading, error, data} = loginCheckState;
 
     useEffect(() => {
-        // axios.post('http://localhost:8080/loginCheck')
-        //     .then((data) => console.log(data.code))
-        //     .catch(
-        //         (data) => console.log(data.response)
-        //     );
         dispatch(LoginCheck());
     },[]);
-
-    // if(
-    //     error === 403
-    //     && error === 401
-    // ){
-    //     history.push('/member/login');
-    // }
-
 
   return (
           <ThemeProvider
