@@ -9,3 +9,31 @@ export const getMember = async () => {
         // data: 없음
     });
 };
+
+export const updatePw = async formState => {
+    return await axios({
+        method: 'post',
+        url: 'http://localhost:8080/member/updatePw.do',
+        //data: pw
+        data: formState
+    });
+};
+
+export const sendEmailForUpdateEmail = async formState => {
+    return await axios({
+        method: 'post',
+        url: 'http://localhost:8080/member/sendEmailForUpdateEmail.do',
+        //data: email
+        data: formState
+    });
+};
+
+export const updateName = async formState => {
+    return await axios({
+        method: 'post',
+        url: 'http://localhost:8080/member/updateName.do',
+        //data: name
+        data: formState
+    });
+};
+

@@ -1,7 +1,8 @@
-import React, {useEffect} from 'react';
+import React,{useRef}  from 'react';
 import styled,{css} from "styled-components";
 import LoadingPage from "../../common/LoadingPage";
 import Button from "../../../lib/css/Button";
+import {useSelector} from "react-redux";
 
 const MyPageFormBlock = styled.div`
     width: 100%;
@@ -82,7 +83,7 @@ const PasswordBody = styled.div`
     box-sizing: border-box;
 `;
 
-const PasswordButtonBlock = styled.div`
+const ButtonBlock = styled.div`
     position: absolute;
     right: 0;
     margin-top: 5px;
@@ -110,15 +111,26 @@ function MyPageForm({
                         inputChangeState,
                         updateButtonState,
                         onUpdateButtonClick,
-    onSubmit
-
+                        onSubmit,
+                        onSaveButtonClick
 }) {
 
-    const {id, oldPw, pw, name, email} = inputChangeState;
+    const pwInput = useRef();
+    const pw2Input = useRef();
+
+    const updatePwState =
+        useSelector(state => state.mypage.updatePw);
+    const updateEmailState =
+        useSelector(state => state.mypage.updateEmail);
+    const updateNameState =
+        useSelector(state => state.mypage.updateName);
+    const {id, pw, pw2, name, email} = inputChangeState;
     const {canChangePw, canChangeName, canChangeEmail} = updateButtonState;
 
-
     if(getMemberState.loading) return <LoadingPage/>;
+    if(updatePwState.loading) return <LoadingPage/>;
+    if(updateEmailState.loading) return <LoadingPage/>;
+    if(updateNameState.loading) return <LoadingPage/>;
 
     return(
         <MyPageFormBlock>
@@ -135,19 +147,23 @@ function MyPageForm({
                         {id}
                     </FormItemBody>
                 </FormItem>
-                <FormItem>
                     {
                         canChangePw
                             ? (
-                                <div>
+                                <FormItem>
                                     <PasswordItem>
                                         <FormItemTitle>
                                             <TitlePadding>
-                                                비밀번호
+                                                새 비밀번호
                                             </TitlePadding>
                                         </FormItemTitle>
                                         <PasswordBody>
-                                            <Input/>
+                                            <Input
+                                                name="pw"
+                                                type="password"
+                                                onChange={onChange}
+                                                value={pw}
+                                            />
                                         </PasswordBody>
                                     </PasswordItem>
                                     <PasswordItem>
@@ -157,65 +173,181 @@ function MyPageForm({
                                             </TitlePadding>
                                         </FormItemTitle>
                                         <PasswordBody>
-                                            <Input/>
+                                            <Input
+                                                name="pw2"
+                                                type="password"
+                                                onChange={onChange}
+                                                value={pw2}
+                                                ref={pw2Input}
+                                            />
                                         </PasswordBody>
                                     </PasswordItem>
-                                </div>
+                                    <ButtonBlock>
+                                        <Button
+                                            style={{
+                                                width: '40px',
+                                                height: '20px',
+                                                fontSize: '12px',
+                                                borderRadius: '2px'
+                                            }}
+                                            backgroundColor='fourthC'
+                                            onClick={() => onUpdateButtonClick({canChangePw: false})}
+                                        >
+                                            취소
+                                        </Button>
+                                    </ButtonBlock>
+                                    <ButtonBlock
+                                        style={{
+                                            right: '50px'
+                                        }}
+                                    >
+                                        {
+                                            pw2 !== ''
+                                            && pw !== ''
+                                            && pw !== pw2
+                                                ? (
+
+                                                    <Button
+                                                        style={{
+                                                            width: '40px',
+                                                            height: '20px',
+                                                            fontSize: '12px',
+                                                            borderRadius: '2px',
+                                                        }}
+                                                        backgroundColor='fourthC'
+                                                        onClick={
+                                                            () => {
+                                                                alert('비밀번호가 일치하지 않습니다.');
+                                                                pw2Input.current.focus();
+                                                            }
+                                                        }
+                                                    >
+                                                        저장
+                                                    </Button>
+                                                )
+                                                : (
+
+                                                    <Button
+                                                        style={{
+                                                            width: '40px',
+                                                            height: '20px',
+                                                            fontSize: '12px',
+                                                            borderRadius: '2px',
+                                                        }}
+                                                        backgroundColor='fourthC'
+                                                        onClick={
+                                                            () => onSaveButtonClick('pw')
+                                                        }
+                                                    >
+                                                        저장
+                                                    </Button>
+                                                )
+                                        }
+                                    </ButtonBlock>
+                                </FormItem>
 
                             )
                             : (
-                                <PasswordItem>
-                                    <FormItemTitle>
-                                        <TitlePadding>
-                                            비밀번호
-                                        </TitlePadding>
-                                    </FormItemTitle>
-                                    <PasswordBody>
-                                        ****
-                                    </PasswordBody>
-                                </PasswordItem>
+                                <FormItem>
+                                    <PasswordItem>
+                                        <FormItemTitle>
+                                            <TitlePadding>
+                                                비밀번호
+                                            </TitlePadding>
+                                        </FormItemTitle>
+                                        <PasswordBody>
+                                            ****
+                                        </PasswordBody>
+                                    </PasswordItem>
+                                    <ButtonBlock>
+                                        <Button
+                                            style={{
+                                                width: '40px',
+                                                height: '20px',
+                                                fontSize: '12px',
+                                                borderRadius: '2px'
+                                            }}
+                                            backgroundColor='fourthC'
+                                            onClick={() => onUpdateButtonClick({canChangePw: true})}
+                                        >
+                                            수정
+                                        </Button>
+                                    </ButtonBlock>
+                                </FormItem>
                             )
                     }
-                    <PasswordButtonBlock>
-                        <Button
-                            style={{
-                                width: '40px',
-                                height: '20px',
-                                fontSize: '12px',
-                                borderRadius: '2px'
-                            }}
-                            backgroundColor='fourthC'
-                            id='canChangePw'
-                            onClick={onUpdateButtonClick}
-                        >
-                            수정
-                        </Button>
-                    </PasswordButtonBlock>
-                </FormItem>
                 <FormItem>
                     <FormItemTitle>
                         <TitlePadding>
                             이름
                         </TitlePadding>
                     </FormItemTitle>
-                    <FormItemBody>
-                        <Input
-                            name='name'
-                            onChange={onChange}
-                            value={name}
-                        />
-                        <Button
-                            style={{
-                                width: '40px',
-                                height: '20px',
-                                fontSize: '12px',
-                                borderRadius: '2px'
-                            }}
-                            backgroundColor='fourthC'
-                        >
-                            수정
-                        </Button>
-                    </FormItemBody>
+                    {
+                        canChangeName
+                            ?(
+                                <FormItemBody>
+                                    <Input
+                                        name='name'
+                                        onChange={onChange}
+                                        value={name}
+                                    />
+                                    <ButtonBlock
+                                        style={{
+                                            right: '50px'
+                                        }}
+                                    >
+                                        <Button
+                                            style={{
+                                                width: '40px',
+                                                height: '20px',
+                                                fontSize: '12px',
+                                                borderRadius: '2px',
+                                            }}
+                                            backgroundColor='fourthC'
+                                            onClick={() => onSaveButtonClick('name')}
+                                        >
+                                            저장
+                                        </Button>
+                                    </ButtonBlock>
+                                    <ButtonBlock>
+                                        <Button
+                                            style={{
+                                                width: '40px',
+                                                height: '20px',
+                                                fontSize: '12px',
+                                                borderRadius: '2px'
+                                            }}
+                                            backgroundColor='fourthC'
+                                            onClick={() => onUpdateButtonClick({canChangeName: false})}
+                                        >
+                                            취소
+                                        </Button>
+                                    </ButtonBlock>
+                                </FormItemBody>
+                            )
+                            :(
+                                <FormItemBody>
+                                    <Input
+                                        name='name'
+                                        onChange={onChange}
+                                        value={name}
+                                        disabled
+                                    />
+                                    <Button
+                                        style={{
+                                            width: '40px',
+                                            height: '20px',
+                                            fontSize: '12px',
+                                            borderRadius: '2px'
+                                        }}
+                                        backgroundColor='fourthC'
+                                        onClick={() => onUpdateButtonClick({canChangeName: true})}
+                                    >
+                                        수정
+                                    </Button>
+                                </FormItemBody>
+                            )
+                    }
                 </FormItem>
                 <FormItem
                     className='lastChild'
@@ -225,24 +357,73 @@ function MyPageForm({
                             이메일
                         </TitlePadding>
                     </FormItemTitle>
-                    <FormItemBody>
-                        <Input
-                            name='email'
-                            value={email}
-                            onChange={onChange}
-                        />
-                        <Button
-                            style={{
-                                width: '40px',
-                                height: '20px',
-                                fontSize: '12px',
-                                borderRadius: '2px'
-                            }}
-                            backgroundColor='fourthC'
-                        >
-                            수정
-                        </Button>
-                    </FormItemBody>
+                    {
+                        canChangeEmail
+                            ?(
+
+                                <FormItemBody>
+                                    <Input
+                                        name='email'
+                                        value={email}
+                                        onChange={onChange}
+                                    />
+                                    <ButtonBlock
+                                        style={{
+                                            right: '50px'
+                                        }}
+                                    >
+                                        <Button
+                                            style={{
+                                                width: '40px',
+                                                height: '20px',
+                                                fontSize: '12px',
+                                                borderRadius: '2px',
+                                            }}
+                                            backgroundColor='fourthC'
+                                            onClick={() => onSaveButtonClick('email')}
+                                        >
+                                            저장
+                                        </Button>
+                                    </ButtonBlock>
+                                    <ButtonBlock>
+                                        <Button
+                                            style={{
+                                                width: '40px',
+                                                height: '20px',
+                                                fontSize: '12px',
+                                                borderRadius: '2px'
+                                            }}
+                                            backgroundColor='fourthC'
+                                            onClick={() => onUpdateButtonClick({canChangeEmail: false})}
+                                        >
+                                            취소
+                                        </Button>
+                                    </ButtonBlock>
+                                </FormItemBody>
+                            )
+                            :(
+                                <FormItemBody>
+                                    <Input
+                                        name='email'
+                                        value={email}
+                                        onChange={onChange}
+                                        disabled
+                                    />
+                                    <Button
+                                        style={{
+                                            width: '40px',
+                                            height: '20px',
+                                            fontSize: '12px',
+                                            borderRadius: '2px'
+                                        }}
+                                        backgroundColor='fourthC'
+                                        onClick={() => onUpdateButtonClick({canChangeEmail: true})}
+                                    >
+                                        수정
+                                    </Button>
+                                </FormItemBody>
+                            )
+                    }
                 </FormItem>
             </Form>
         </MyPageFormBlock>

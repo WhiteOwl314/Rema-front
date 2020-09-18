@@ -2,20 +2,19 @@ import React,{useEffect} from 'react';
 import ContentTemplate from "../../components/common/ContentTemplate";
 import MyPageForm from "../../components/member/mypage/MyPageForm";
 import {useDispatch, useSelector} from "react-redux";
-import {inputChange, updateButton} from "../../modules/member/mypage";
+import {inputChange, updateButton, updateEmail, updateName, updatePw} from "../../modules/member/mypage";
 import {getMember} from "../../modules/member/mypage";
 import LoadingPage from "../../components/common/LoadingPage";
-import {AddMember} from "../../modules/member/member";
 
 function MyPageContainer() {
-    const updatePwState =
-        useSelector(state => state.member.updatePw);
     const getMemberState =
         useSelector(state => state.mypage.getMember);
     const inputChangeState =
         useSelector(state => state.mypage.inputChange);
     const updateButtonState =
         useSelector(state => state.mypage.updateButton);
+    const updatePwState =
+        useSelector(state => state.mypage.updatePw);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -34,11 +33,23 @@ function MyPageContainer() {
         dispatch(inputChange({[name]: value}));
     };
 
-    const onUpdateButtonClick = (e) => {
-        console.log(e.target.id);
-        const targetButton = e.target.id;
-        dispatch(updateButton(targetButton));
+    const onUpdateButtonClick = (formState) => {
+        dispatch(updateButton(formState));
     };
+
+    const onSaveButtonClick = (kind) => {
+        if(kind === 'pw'){
+            console.log(kind);
+            dispatch(updatePw());
+        } else if (kind === 'email'){
+            console.log(kind);
+            dispatch(updateEmail());
+        } else if (kind === 'name'){
+            console.log(kind);
+            dispatch(updateName());
+        }
+    };
+
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -55,6 +66,8 @@ function MyPageContainer() {
                 updateButtonState={updateButtonState}
                 onSubmit={onSubmit}
                 onUpdateButtonClick={onUpdateButtonClick}
+                onSaveButtonClick={onSaveButtonClick}
+                updatePwState={updatePwState}
             />
         </ContentTemplate>
     )
