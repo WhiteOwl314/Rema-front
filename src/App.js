@@ -1,11 +1,9 @@
-import React,{useEffect} from 'react';
+import React from 'react';
 import {createGlobalStyle, ThemeProvider} from "styled-components";
 import {Route, Switch} from 'react-router-dom';
 import MemberPage from "./pages/member/MemberPage";
 import MemberFormSuccessPage from "./components/member/memberForm/MemberFormSuccessPage";
 import MainPage from "./pages/main/MainPage";
-import {useDispatch, useSelector} from "react-redux";
-import {LoginCheck} from "./modules/member/member";
 import Page404 from "./components/error/Page404";
 
 const GlobalStyle = createGlobalStyle`
@@ -21,11 +19,6 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
 
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(LoginCheck());
-    },[]);
 
   return (
           <ThemeProvider
