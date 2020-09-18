@@ -16,7 +16,7 @@ function MainPage({match, history}) {
     useEffect(() => {
         dispatch(LoginCheck());
         document.title = "REMA";
-    },[]);
+    },[dispatch]);
 
     const {loading, data} = loginCheckState;
 
