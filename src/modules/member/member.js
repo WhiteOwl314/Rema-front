@@ -5,6 +5,7 @@ import {
     reducerUtils,
     handleAsyncActions, createPromiseThunkWithFunction, createPromiseThunkForJwt, createPromiseThunkWithPromise
 } from "../../lib/asyncUtils";
+import {push} from "connected-react-router";
 
 //아이디 체크
 const CHECK_ID = 'CHECK_ID';
@@ -60,6 +61,9 @@ const GET_MEMBER = 'GET_MEMBER';
 const GET_MEMBER_SUCCESS = 'GET_MEMBER_SUCCESS';
 const GET_MEMBER_ERROR = 'GET_MEMBER_ERROR';
 
+//로그아웃
+const LOGOUT = 'LOGOUT';
+
 export const CheckId =
     createPromiseThunkWithPromise(CHECK_ID, memberAPI.checkId);
 export const CheckEmail =
@@ -81,6 +85,12 @@ export const LoginCheck =
     createPromiseThunkWithPromise(LOGIN_CHECK, JwtAPI.loginCheck);
 export const GetMember =
     createPromiseThunkWithPromise(GET_MEMBER, memberAPI.getMember);
+export const Logout = param => async (dispatch, getState) => {
+    await JwtAPI.logout();
+    dispatch({type: LOGOUT});
+    dispatch(push('/member/login'));
+};
+
 
 const initialState = {
     checkId: reducerUtils.initial(),
@@ -91,7 +101,8 @@ const initialState = {
     findPw: reducerUtils.initial(),
     updatePw: reducerUtils.initial(),
     loginCheck: reducerUtils.initial(),
-    getMember: reducerUtils.initial()
+    getMember: reducerUtils.initial(),
+    logout: {removeToken:false}
 };
 
 export default function member (state = initialState, action) {
@@ -156,6 +167,11 @@ export default function member (state = initialState, action) {
         case GET_MEMBER_ERROR:
             return handleAsyncActions(GET_MEMBER, 'getMember')
             (state,action);
+        case LOGOUT:
+            return {
+                ...state,
+                logout: {removeToken: true}
+            };
         default:
             return state;
     }

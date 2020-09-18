@@ -44,7 +44,7 @@ const HeaderMenuItem = styled.div`
 `;
 
 
-function MainHeader({history}) {
+function MainHeader({history,onClickLogout}) {
     return(
         <MainHeaderBlock>
             <HeaderLogo
@@ -59,7 +59,11 @@ function MainHeader({history}) {
                 >
                     회원정보
                 </HeaderMenuItem>
-                <HeaderMenuItem>로그아웃</HeaderMenuItem>
+                <HeaderMenuItem
+                    onClick={onClickLogout}
+                >
+                    로그아웃
+                </HeaderMenuItem>
             </HeaderMenu>
         </MainHeaderBlock>
     )

@@ -2,6 +2,8 @@ import React from 'react';
 import MainHeader from "../../components/main/MainHeader";
 import MainSide from "../../components/main/MainSide";
 import styled from 'styled-components'
+import {Logout} from "../../modules/member/member";
+import {useDispatch} from "react-redux";
 
 const MainContainerBlock = styled.div`
     width: 100%;
@@ -21,10 +23,17 @@ const MainContent = styled.div`
 
 function MainContainer({history,children}) {
 
+    const dispatch = useDispatch();
+
+    const onClickLogout = () => {
+        dispatch(Logout());
+    }
+
     return(
         <MainContainerBlock>
             <MainHeader
                 history={history}
+                onClickLogout={onClickLogout}
             />
             <MainSide
                 history={history}
