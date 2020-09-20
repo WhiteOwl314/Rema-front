@@ -40,7 +40,7 @@ export default function folderOrder (state = initialState, action) {
         case GET_FOLDER_ORDER_LIST:
         case GET_FOLDER_ORDER_LIST_SUCCESS:
         case GET_FOLDER_ORDER_LIST_ERROR:
-            return handleAsyncActions(GET_FOLDER_ORDER_LIST, 'getFolderOrderList')
+            return handleAsyncActions(GET_FOLDER_ORDER_LIST, 'getFolderOrderList',true)
             (state, action);
         default:
             return state;

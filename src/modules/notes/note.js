@@ -40,7 +40,7 @@ export default function note (state = initialState, action) {
         case GET_NOTE_LIST:
         case GET_NOTE_LIST_SUCCESS:
         case GET_NOTE_LIST_ERROR:
-            return handleAsyncActions(GET_NOTE_LIST, 'getNoteList')
+            return handleAsyncActions(GET_NOTE_LIST, 'getNoteList', true)
                 (state, action);
         default:
             return state;

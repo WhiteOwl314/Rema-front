@@ -40,7 +40,7 @@ export default function folder (state = initialState, action) {
         case GET_FOLDER_LIST:
         case GET_FOLDER_LIST_SUCCESS:
         case GET_FOLDER_LIST_ERROR:
-            return handleAsyncActions(GET_FOLDER_LIST, 'getFolderList')
+            return handleAsyncActions(GET_FOLDER_LIST, 'getFolderList',true)
                 (state, action);
         default:
             return state;

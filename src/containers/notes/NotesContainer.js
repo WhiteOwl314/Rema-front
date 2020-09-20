@@ -30,11 +30,18 @@ function NotesContainer() {
         dispatch(GetFolderList());
         dispatch(GetNoteList());
         dispatch(GetFolderOrderList());
-    }, []);
+    }, [dispatch]);
 
-    if(getFolderListState.loading) return <LoadingPage/>;
-    if(getNoteListState.loading) return <LoadingPage/>;
-    if(getFolderOrderListState.loading) return <LoadingPage/>;
+    if(getFolderListState.loading && !getFolderListState.data) return <LoadingPage/>;
+    if(getNoteListState.loading && !getNoteListState.data) return <LoadingPage/>;
+    if(getFolderOrderListState.loading && !getFolderOrderListState.data) return <LoadingPage/>;
+    if(
+        !getFolderListState.data
+        || !getNoteListState.data
+        || !getFolderOrderListState.data
+    ){
+        return null;
+    }
 
     return(
         <ContainerBlock>
