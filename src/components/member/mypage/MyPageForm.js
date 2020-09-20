@@ -127,7 +127,6 @@ function MyPageForm({
     const {id, pw, pw2, name, email} = inputChangeState;
     const {canChangePw, canChangeName, canChangeEmail} = updateButtonState;
 
-    if(getMemberState.loading) return <LoadingPage/>;
     if(updatePwState.loading) return <LoadingPage/>;
     if(updateEmailState.loading) return <LoadingPage/>;
     if(updateNameState.loading) return <LoadingPage/>;

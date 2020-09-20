@@ -5,6 +5,11 @@ function MyPagePage() {
 
     useEffect(() => {
         document.title = "REMA | MYPAGE";
+        return () => {
+
+            document.title = "REMA";
+        };
+
     }, []);
 
 

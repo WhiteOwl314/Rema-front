@@ -6,6 +6,7 @@ import Page404 from "../../components/error/Page404";
 import {useDispatch, useSelector} from "react-redux";
 import {LoginCheck} from "../../modules/member/member";
 import LoadingPage from "../../components/common/LoadingPage";
+import NotesPage from "../notes/NotesPage";
 
 function MainPage({match, history}) {
 
@@ -40,6 +41,11 @@ function MainPage({match, history}) {
                             <Route
                                 path={`${match.path}mypage`}
                                 component={MyPagePage}
+                                exact
+                            />
+                            <Route
+                                path={`${match.path}notes`}
+                                component={NotesPage}
                                 exact
                             />
                             <Route

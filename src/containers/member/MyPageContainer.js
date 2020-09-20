@@ -18,15 +18,13 @@ function MyPageContainer() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log('useEffect 실행');
         dispatch(getMember());
     },[dispatch]);
 
     const {loading} = getMemberState;
 
-    if(loading) return <LoadingPage/>;
-
-
+    if(loading && !getMemberState.data) return <LoadingPage/>;
+    if(!getMemberState.data) return null;
 
     const onChange = (e) => {
         const {name, value} = e.target;

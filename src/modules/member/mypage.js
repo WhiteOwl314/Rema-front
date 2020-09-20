@@ -194,7 +194,7 @@ export default function mypage(state=initialState, action) {
         case GET_MEMBER:
         case GET_MEMBER_SUCCESS:
         case GET_MEMBER_ERROR:
-            return handleAsyncActions(GET_MEMBER, 'getMember')
+            return handleAsyncActions(GET_MEMBER, 'getMember',true)
             (state,action);
         case UPDATE_BUTTON:
             return {

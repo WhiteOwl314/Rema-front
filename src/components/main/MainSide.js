@@ -59,7 +59,9 @@ function MainSide({history}) {
                 <SideMenuItem>
                     <CgInbox/>
                 </SideMenuItem>
-                <SideMenuItem>
+                <SideMenuItem
+                    onClick={() => history.push('/notes')}
+                >
                     <MdLibraryBooks/>
                 </SideMenuItem>
                 <SideMenuItem>
