@@ -6,6 +6,7 @@ import {GetFolderOrderList} from "../../modules/notes/folderOrder";
 import LoadingPage from "../../components/common/LoadingPage";
 import styled from "styled-components";
 import NoteList from "../../components/notes/NoteList";
+import NoteListMenu from "../../components/notes/NoteListMenu";
 
 
 const ContainerBlock = styled.div`
@@ -45,7 +46,9 @@ function NotesContainer() {
 
     return(
         <ContainerBlock>
-            <NoteList/>
+            <NoteList>
+                <NoteListMenu/>
+            </NoteList>
         </ContainerBlock>
     )
 }
