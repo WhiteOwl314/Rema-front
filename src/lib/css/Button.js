@@ -32,12 +32,14 @@ const colorStyles = css`
 
 const sizes = {
     large: {
-        height: '3rem',
-        fontSize: '1.25rem'
+        height: '35px',
+        fontSize: '17px'
     },
     medium: {
-        height: '2.25rem',
-        fontSize: '1rem'
+        width: '40px',
+        height: '20px',
+        fontSize: '12px',
+        borderRadius: '2px'
     },
     small: {
         height: '1.5rem',
@@ -47,9 +49,11 @@ const sizes = {
 
 const sizeStyles = css`
     ${({size}) =>
-        css`
+    css`
+            width: ${sizes[size].width};
             height: ${sizes[size].height};
             font-size: ${sizes[size].fontSize};
+            border-radius: ${sizes[size].borderRadius};
         `
     }
 `;

@@ -102,6 +102,7 @@ function FindPwForm({
                     fullWidth
                     backgroundColor='fourthC'
                     color='white'
+                    size='large'
                 >
                     비밀번호 검색
                 </Button>

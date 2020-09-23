@@ -100,6 +100,7 @@ function FindIdForm({
                     fullWidth
                     backgroundColor='fourthC'
                     color='white'
+                    size='large'
                 >
                     아이디 검색
                 </Button>

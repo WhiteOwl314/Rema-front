@@ -11,7 +11,7 @@ import {AiOutlineDelete} from "react-icons/ai";
 import {IconContext} from "react-icons";
 import {darken} from 'polished';
 
-const NoteListMenuBlock = styled.div`
+const NotesListMenuBlock = styled.div`
     width: 100%;
     height: 30px;
     box-sizing: border-box;
@@ -39,16 +39,18 @@ const IconContainer = styled.div`
     }
 `;
 
-function NoteListMenu() {
+function NotesListMenu({onClickAddFolder}) {
     return (
-        <NoteListMenuBlock>
+        <NotesListMenuBlock>
             <IconContext.Provider
                 value={{
                     color: '#494949',
                     size: '18'
                 }}
             >
-                <IconContainer>
+                <IconContainer
+                    onClick={onClickAddFolder}
+                >
                     <TiFolderAdd/>
                 </IconContainer>
                 <IconContainer>
@@ -61,8 +63,8 @@ function NoteListMenu() {
                     <AiOutlineDelete/>
                 </IconContainer>
             </IconContext.Provider>
-        </NoteListMenuBlock>
+        </NotesListMenuBlock>
     )
 }
 
-export default NoteListMenu;
+export default NotesListMenu;

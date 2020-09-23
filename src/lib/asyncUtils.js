@@ -179,7 +179,7 @@ export const handleAsyncActionById = (type, key, keepData = false) => {
                                 : null
                         )
                     }
-                }
+                };
             case SUCCESS:
                 return {
                     ...state,

@@ -96,6 +96,7 @@ function LoginForm({
                     fullWidth
                     backgroundColor='fourthC'
                     color='white'
+                    size='large'
                 >
                     로그인
                 </Button>

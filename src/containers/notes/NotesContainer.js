@@ -1,12 +1,11 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {GetFolderList} from "../../modules/notes/folder";
-import {GetNoteList} from "../../modules/notes/note";
-import {GetFolderOrderList} from "../../modules/notes/folderOrder";
 import LoadingPage from "../../components/common/LoadingPage";
 import styled from "styled-components";
-import NoteList from "../../components/notes/NoteList";
-import NoteListMenu from "../../components/notes/NoteListMenu";
+import NotesList from "../../components/notes/NotesList";
+import NotesListMenu from "../../components/notes/NotesListMenu";
+import {ClickItem, GetFolderOrderList, GetNotesList} from "../../modules/notes/notesList";
+import {ChangeAddFolderContent, OpenPopUp} from "../../modules/popUp";
 
 
 const ContainerBlock = styled.div`
@@ -20,35 +19,55 @@ function NotesContainer() {
 
     const dispatch = useDispatch();
 
-    const getFolderListState =
-        useSelector(state => state.folder.getFolderList);
-    const getNoteListState =
-        useSelector(state => state.note.getNoteList);
-    const getFolderOrderListState =
-        useSelector(state => state.folderOrder.getFolderOrderList);
+    const notesList =
+        useSelector(state => state.notesList.notesList);
+    const folderOrder =
+        useSelector(state => state.notesList.folderOrder);
+    const currentClick =
+        useSelector(state => state.notesList.currentClick);
 
     useEffect(() => {
-        dispatch(GetFolderList());
-        dispatch(GetNoteList());
+        dispatch(GetNotesList());
         dispatch(GetFolderOrderList());
     }, [dispatch]);
 
-    if(getFolderListState.loading && !getFolderListState.data) return <LoadingPage/>;
-    if(getNoteListState.loading && !getNoteListState.data) return <LoadingPage/>;
-    if(getFolderOrderListState.loading && !getFolderOrderListState.data) return <LoadingPage/>;
+    if(notesList.loading && !notesList.data) return <LoadingPage/>;
+    if(folderOrder.loading && !folderOrder.data) return <LoadingPage/>;
     if(
-        !getFolderListState.data
-        || !getNoteListState.data
-        || !getFolderOrderListState.data
+        !notesList.data
+        || !folderOrder.data
     ){
         return null;
     }
 
+    const onClickBackground = () => {
+        dispatch(ClickItem({current:'background'}));
+    };
+
+    const onClickItem = (id) => {
+        console.log(id);
+        dispatch(ClickItem({current:id}));
+    };
+
+    const openAddFolder = () => {
+        if(currentClick.current === 'background'){
+            dispatch(ChangeAddFolderContent({is_first:1}));
+        }
+        dispatch(OpenPopUp());
+    };
+
     return(
         <ContainerBlock>
-            <NoteList>
-                <NoteListMenu/>
-            </NoteList>
+            <NotesList
+                notesList={notesList}
+                folderOrder={folderOrder}
+                onClickBackground={onClickBackground}
+                onClickItem={onClickItem}
+            >
+                <NotesListMenu
+                    onClickAddFolder={openAddFolder}
+                />
+            </NotesList>
         </ContainerBlock>
     )
 }

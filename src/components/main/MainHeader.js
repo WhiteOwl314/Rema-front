@@ -15,7 +15,7 @@ const MainHeaderBlock = styled.div`
     justify-content: space-between;
     position: absolute;
     background: white;
-    z-index: 1000;
+    z-index: 900;
 `;
 
 const HeaderLogo = styled.div`

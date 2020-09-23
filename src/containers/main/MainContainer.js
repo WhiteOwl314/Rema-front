@@ -4,6 +4,7 @@ import MainSide from "../../components/main/MainSide";
 import styled from 'styled-components'
 import {Logout} from "../../modules/member/member";
 import {useDispatch} from "react-redux";
+import PopUp from "../../components/popUp/PopUp";
 
 const MainContainerBlock = styled.div`
     width: 100%;
@@ -31,6 +32,7 @@ function MainContainer({history,children}) {
 
     return(
         <MainContainerBlock>
+            <PopUp/>
             <MainHeader
                 history={history}
                 onClickLogout={onClickLogout}

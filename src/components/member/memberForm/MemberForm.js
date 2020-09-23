@@ -183,6 +183,7 @@ function MemberForm({
                             fullWidth
                             backgroundColor='fourthC'
                             color='white'
+                            size='large'
                         >
                             회원가입
                         </Button>
@@ -192,6 +193,7 @@ function MemberForm({
                             disabled
                             backgroundColor='gray'
                             color='white'
+                            size='large'
                         >
                             회원가입
                         </Button>
