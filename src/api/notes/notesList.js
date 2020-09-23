@@ -36,3 +36,13 @@ export const updateName = async (formState) => {
     return response.data;
 };
 
+export const deleteNotesList = async (formState) => {
+    const response = await axios({
+        method: 'post',
+        url: 'http://localhost:8080/notesList/deleteNotesList',
+        // data: {id}
+        data: formState
+    });
+
+    return response.data;
+};

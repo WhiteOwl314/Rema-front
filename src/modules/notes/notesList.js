@@ -185,9 +185,7 @@ export const UpdateName = param => async (dispatch, getState) => {
         ..._formData,
         id : getState().notesList.currentClick.current
     };
-
-    console.log(formData);
-
+    
     await notesListAPI.updateName(formData)
         .then(async response => {
             const payload = response.data;
@@ -216,6 +214,44 @@ export const UpdateName = param => async (dispatch, getState) => {
 };
 
 
+//삭제
+const DELETE = 'notesList/DELETE';
+const DELETE_SUCCESS = 'notesList/DELETE_SUCCESS';
+const DELETE_ERROR = 'notesList/DELETE_ERROR';
+
+export const Delete = param => async (dispatch, getState) => {
+    dispatch({type:DELETE});
+    const formData = {
+        id : getState().notesList.currentClick.current
+    };
+
+    await notesListAPI.deleteNotesList(formData)
+        .then(async response => {
+            const payload = response.data;
+            dispatch({type:DELETE_SUCCESS, payload});
+            dispatch(GetNotesList());
+        })
+        .catch(error => {
+            const payload = error.data;
+            dispatch({type:DELETE_ERROR, payload: payload, error: true});
+
+            let status = null;
+            if(error.response){
+                status = error.response.status;
+
+                if(
+                    status === 403
+                    || status === 401
+                ){
+                    dispatch(push('/member/login'));
+                } else if (status === 404){
+                    dispatch(push('/404'))
+                }
+            }
+        })
+};
+
+
 const initialState = {
     currentClick: {current: 'background'},
     notesList: reducerUtils.initial(),
@@ -223,6 +259,7 @@ const initialState = {
     addFolder: reducerUtils.initial(),
     addNote: reducerUtils.initial(),
     updateName: reducerUtils.initial(),
+    deleteNotesList: reducerUtils.initial(),
     openFolder: {}
 };
 
@@ -276,6 +313,11 @@ export default function notesList(state = initialState, action) {
         case UPDATE_NAME_SUCCESS:
         case UPDATE_NAME_ERROR:
             return handleAsyncActions(ADD_NOTE, 'updateName')
+            (state, action);
+        case DELETE:
+        case DELETE_SUCCESS:
+        case DELETE_ERROR:
+            return handleAsyncActions(ADD_NOTE, 'deleteNotesList')
             (state, action);
         default:
             return state;

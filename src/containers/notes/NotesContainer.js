@@ -4,7 +4,7 @@ import LoadingPage from "../../components/common/LoadingPage";
 import styled from "styled-components";
 import NotesList from "../../components/notes/NotesList";
 import NotesListMenu from "../../components/notes/NotesListMenu";
-import {ClickItem, GetFolderOrderList, GetNotesList} from "../../modules/notes/notesList";
+import {ClickItem, Delete, GetFolderOrderList, GetNotesList} from "../../modules/notes/notesList";
 import {ChangeAddFolderContent, ChangeAddNoteContent, ChangeKind, OpenPopUp} from "../../modules/popUp";
 
 
@@ -72,6 +72,12 @@ function NotesContainer() {
         }
     };
 
+    const onClickDelete = () => {
+        if(currentClick.current !== 'background'){
+            dispatch(Delete());
+        }
+    }
+
     return(
         <ContainerBlock>
             <NotesList
@@ -84,6 +90,7 @@ function NotesContainer() {
                     onClickAddFolder={openAddFolder}
                     onClickAddNote={openAddNote}
                     onClickUpdateName={openUpdateName}
+                    onClickDelete={onClickDelete}
                 />
             </NotesList>
         </ContainerBlock>

@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4333ac0-a4be-47cb-922d-e29c8179feeb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/popUp/AddNotePopUpWindow.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/popUp/UpdateNamePopUpWindow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/notes/notesList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/notes/notesList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/notes/NotesList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/notes/NotesList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/notes/NotesListMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/notes/NotesListMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/popUp/PopUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/popUp/PopUp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/notes/NotesContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/notes/NotesContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/notes/notesList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/notes/notesList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/popUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/popUp.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,32 +35,61 @@
     <favorites_list name="rema-front" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/modules/notes/notesList.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="194" column="33" selection-start-line="194" selection-start-column="33" selection-end-line="194" selection-end-column="33" />
-              <folding>
-                <element signature="e#0#58#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/notes/NotesContainer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="69" column="24" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="24" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/api/notes/notesList.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="275">
+                  <caret line="43" column="22" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/modules/notes/notesList.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="176">
+                  <caret line="302" column="39" selection-start-line="302" selection-start-column="39" selection-end-line="302" selection-end-column="39" />
+                  <folding>
+                    <element signature="e#0#58#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/containers/notes/NotesContainer.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="353">
+                  <caret line="92" column="47" selection-start-line="92" selection-start-column="47" selection-end-line="92" selection-end-column="47" />
+                  <folding>
+                    <element signature="e#0#39#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/components/notes/NotesListMenu.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="261">
+                  <caret line="69" column="31" selection-start-line="69" selection-start-column="31" selection-end-line="69" selection-end-column="31" />
+                  <folding>
+                    <element signature="e#0#26#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -133,13 +156,13 @@
         <option value="$PROJECT_DIR$/src/components/notes/NotesListItem.js" />
         <option value="$PROJECT_DIR$/src/components/notes/NotesList.js" />
         <option value="$PROJECT_DIR$/src/components/popUp/AddNotePopUpWindow.js" />
-        <option value="$PROJECT_DIR$/src/api/notes/notesList.js" />
-        <option value="$PROJECT_DIR$/src/components/notes/NotesListMenu.js" />
         <option value="$PROJECT_DIR$/src/components/popUp/PopUp.js" />
         <option value="$PROJECT_DIR$/src/modules/popUp.js" />
         <option value="$PROJECT_DIR$/src/components/popUp/UpdateNamePopUpWindow.js" />
-        <option value="$PROJECT_DIR$/src/containers/notes/NotesContainer.js" />
+        <option value="$PROJECT_DIR$/src/api/notes/notesList.js" />
         <option value="$PROJECT_DIR$/src/modules/notes/notesList.js" />
+        <option value="$PROJECT_DIR$/src/containers/notes/NotesContainer.js" />
+        <option value="$PROJECT_DIR$/src/components/notes/NotesListMenu.js" />
       </list>
     </option>
   </component>
@@ -352,18 +375,18 @@
       <workItem from="1600756465544" duration="18331000" />
       <workItem from="1600838055378" duration="7986000" />
       <workItem from="1600849861668" duration="11748000" />
-      <workItem from="1600880534270" duration="1713000" />
+      <workItem from="1600880534270" duration="3352000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="265787000" />
+    <option name="totallyTimeSpent" value="267426000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19547658" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.19547658" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -807,16 +830,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/notes/NotesListMenu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="56" column="28" lean-forward="true" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/popUp/UpdateNamePopUpWindow.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
@@ -853,27 +866,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/api/notes/notesList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="275">
+          <caret line="43" column="22" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/notes/notesList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="302" column="39" selection-start-line="302" selection-start-column="39" selection-end-line="302" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/notes/NotesContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="69" column="24" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="24" />
+        <state relative-caret-position="353">
+          <caret line="92" column="47" selection-start-line="92" selection-start-column="47" selection-end-line="92" selection-end-column="47" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/notes/notesList.js">
+    <entry file="file://$PROJECT_DIR$/src/components/notes/NotesListMenu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="194" column="33" selection-start-line="194" selection-start-column="33" selection-end-line="194" selection-end-column="33" />
+        <state relative-caret-position="261">
+          <caret line="69" column="31" selection-start-line="69" selection-start-column="31" selection-end-line="69" selection-end-column="31" />
           <folding>
-            <element signature="e#0#58#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>

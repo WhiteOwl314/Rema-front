@@ -8,6 +8,8 @@ import {CgRename} from "react-icons/cg";
 import {AiOutlineDelete} from "react-icons/ai";
 import {IconContext} from "react-icons";
 import {darken} from 'polished';
+import {useDispatch} from "react-redux";
+import {Delete} from "../../modules/notes/notesList";
 
 const NotesListMenuBlock = styled.div`
     width: 100%;
@@ -37,7 +39,10 @@ const IconContainer = styled.div`
     }
 `;
 
-function NotesListMenu({onClickAddFolder,onClickAddNote,onClickUpdateName}) {
+function NotesListMenu({onClickAddFolder,onClickAddNote,onClickUpdateName,onClickDelete}) {
+
+    const dispatch = useDispatch();
+
     return (
         <NotesListMenuBlock>
             <IconContext.Provider
@@ -61,7 +66,9 @@ function NotesListMenu({onClickAddFolder,onClickAddNote,onClickUpdateName}) {
                 >
                     <CgRename/>
                 </IconContainer>
-                <IconContainer>
+                <IconContainer
+                    onClick={onClickDelete}
+                >
                     <AiOutlineDelete/>
                 </IconContainer>
             </IconContext.Provider>
