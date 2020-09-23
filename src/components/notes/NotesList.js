@@ -50,12 +50,12 @@ function NotesList({
                         .map(item => {
                             return (
                                 <NotesListItem
-                                    id={item.id}
-                                    title={item.title}
-                                    is_folder={item.is_folder}
-                                    is_review={item.is_review}
+                                    item={item}
                                     key={item.id}
                                     onClickItem={onClickItem}
+                                    folderOrder={folderOrder.data}
+                                    notesList={notesList.data}
+                                    isOpen={true}
                                 />
                             )
                         })

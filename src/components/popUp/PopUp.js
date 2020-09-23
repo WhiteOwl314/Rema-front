@@ -3,7 +3,7 @@ import styled,{css} from "styled-components";
 import {useDispatch, useSelector} from "react-redux";
 import AddFolderPopUpWindow from "./AddFolderPopUpWindow";
 import {ChangeAddFolderContent, ClearContent, ClosePopUp} from "../../modules/popUp";
-import {AddFolder, GetNotesList} from "../../modules/notes/notesList";
+import {AddFolder, GetFolderOrderList, GetNotesList} from "../../modules/notes/notesList";
 
 
 const Mask = styled.div`
@@ -82,6 +82,7 @@ function PopUp() {
         await dispatch(AddFolder());
         dispatch(ClosePopUp());
         dispatch(GetNotesList());
+        dispatch(GetFolderOrderList());
     };
 
     return (

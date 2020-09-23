@@ -115,12 +115,18 @@ export const AddFolder = param => async (dispatch, getState) => {
         })
 };
 
+//폴더 오픈
+const OPEN_FOLDER = 'notesList/OPEN_FOLDER';
+
+export const OpenFolder = id => ({type: OPEN_FOLDER, id});
+
 
 const initialState = {
     currentClick: {current: 'background'},
     notesList: reducerUtils.initial(),
     folderOrder: reducerUtils.initial(),
-    addFolder: reducerUtils.initial()
+    addFolder: reducerUtils.initial(),
+    openFolder: {}
 };
 
 export default function notesList(state = initialState, action) {
@@ -148,6 +154,14 @@ export default function notesList(state = initialState, action) {
         case ADD_FOLDER_ERROR:
             return handleAsyncActions(ADD_FOLDER, 'addFolder')
             (state, action);
+        case OPEN_FOLDER:
+            return {
+                ...state,
+                openFolder: {
+                    ...state.openFolder,
+                    [action.id] : {open: true}
+                }
+            };
         default:
             return state;
     }
