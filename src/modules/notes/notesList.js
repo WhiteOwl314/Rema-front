@@ -121,12 +121,17 @@ const OPEN_FOLDER = 'notesList/OPEN_FOLDER';
 export const OpenFolder = id => ({type: OPEN_FOLDER, id});
 
 
+//폴더 오픈
+const CLOSE_FOLDER = 'notesList/CLOSE_FOLDER';
+
+export const CloseFolder = id => ({type: CLOSE_FOLDER, id});
+
 const initialState = {
     currentClick: {current: 'background'},
     notesList: reducerUtils.initial(),
     folderOrder: reducerUtils.initial(),
     addFolder: reducerUtils.initial(),
-    openFolder: {}
+    openFolder: {},
 };
 
 export default function notesList(state = initialState, action) {
@@ -160,6 +165,14 @@ export default function notesList(state = initialState, action) {
                 openFolder: {
                     ...state.openFolder,
                     [action.id] : {open: true}
+                }
+            };
+        case CLOSE_FOLDER:
+            return {
+                ...state,
+                openFolder: {
+                    ...state.openFolder,
+                    [action.id] : {open: false}
                 }
             };
         default:

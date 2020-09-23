@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {TiFolderOpen, TiFolder, TiDocument} from "react-icons/ti";
 import {IconContext} from "react-icons";
 import {useDispatch, useSelector} from "react-redux";
-import {OpenFolder} from "../../modules/notes/notesList";
+import {CloseFolder, OpenFolder} from "../../modules/notes/notesList";
 
 const ContainerBlock = styled.div`
     width: 100%;
@@ -76,7 +76,7 @@ function NotesListItem({
                     {
                         is_folder
                             ? isOpen
-                                ? <IconContainer onClick={() => dispatch(OpenFolder(id))}
+                                ? <IconContainer onClick={() => dispatch(CloseFolder(id))}
                                 ><TiFolderOpen/></IconContainer>
                                 : <IconContainer onClick={() => dispatch(OpenFolder(id))}
                                 ><TiFolder/></IconContainer>
