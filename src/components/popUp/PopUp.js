@@ -2,8 +2,16 @@ import React from 'react';
 import styled,{css} from "styled-components";
 import {useDispatch, useSelector} from "react-redux";
 import AddFolderPopUpWindow from "./AddFolderPopUpWindow";
-import {ChangeAddFolderContent, ClearContent, ClosePopUp} from "../../modules/popUp";
-import {AddFolder, GetFolderOrderList, GetNotesList} from "../../modules/notes/notesList";
+import {
+    ChangeAddFolderContent,
+    ChangeAddNoteContent,
+    ChangeUpdateNameContent,
+    ClearContent,
+    ClosePopUp
+} from "../../modules/popUp";
+import {AddFolder, AddNote, GetFolderOrderList, GetNotesList, UpdateName} from "../../modules/notes/notesList";
+import AddNotePopUpWindow from "./AddNotePopUpWindow";
+import UpdateNamePopUpWindow from "./UpdateNamePopUpWindow";
 
 
 const Mask = styled.div`
@@ -66,7 +74,12 @@ function PopUp() {
     const content = popUpState.content;
     const {kind} = popUpState.kind;
 
-    const temKind = 'addFolder';
+
+    let _kind = '';
+
+    if(kind){
+        _kind = kind.kind;
+    }
 
     const onClickCancle = () => {
         dispatch(ClosePopUp());
@@ -78,24 +91,55 @@ function PopUp() {
         dispatch(ChangeAddFolderContent({[name]:value}));
     };
 
+    const onChangeAddNote = (e) => {
+        const {name, value} = e.target;
+        dispatch(ChangeAddNoteContent({[name]:value}));
+    };
+    const onChangeUpdateName = (e) => {
+        const {name, value} = e.target;
+        dispatch(ChangeUpdateNameContent({[name]:value}));
+    };
+
+
     const onClickAddFolder = async () => {
         await dispatch(AddFolder());
-        dispatch(ClosePopUp());
-        dispatch(GetNotesList());
-        dispatch(GetFolderOrderList());
+    };
+
+    const onClickAddNote = async () => {
+        await dispatch(AddNote());
+    };
+
+    const onClickUpdateName = async () => {
+        await dispatch(UpdateName());
     };
 
     return (
         <>
             <Mask isOpen={isOpen}/>
             <LayerPopBlock isOpen={isOpen}>
-                {temKind === 'addFolder'
+                {_kind === 'addNotesList'
                     && <AddFolderPopUpWindow
                             onClickCancle={onClickCancle}
                             onChange={onChangeAddFolder}
                             content={content}
                             onSave={onClickAddFolder}
                         />
+                }
+                {_kind === 'addNote'
+                    && <AddNotePopUpWindow
+                        onClickCancle={onClickCancle}
+                        onChange={onChangeAddNote}
+                        content={content}
+                        onSave={onClickAddNote}
+                    />
+                }
+                {_kind === 'updateName'
+                    && <UpdateNamePopUpWindow
+                        onClickCancle={onClickCancle}
+                        onChange={onChangeUpdateName}
+                        content={content}
+                        onSave={onClickUpdateName}
+                    />
                 }
             </LayerPopBlock>
         </>

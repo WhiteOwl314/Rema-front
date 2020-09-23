@@ -5,7 +5,7 @@ import styled from "styled-components";
 import NotesList from "../../components/notes/NotesList";
 import NotesListMenu from "../../components/notes/NotesListMenu";
 import {ClickItem, GetFolderOrderList, GetNotesList} from "../../modules/notes/notesList";
-import {ChangeAddFolderContent, OpenPopUp} from "../../modules/popUp";
+import {ChangeAddFolderContent, ChangeAddNoteContent, ChangeKind, OpenPopUp} from "../../modules/popUp";
 
 
 const ContainerBlock = styled.div`
@@ -53,7 +53,23 @@ function NotesContainer() {
         if(currentClick.current === 'background'){
             dispatch(ChangeAddFolderContent({is_first:1}));
         }
+        dispatch(ChangeKind('addNotesList'));
         dispatch(OpenPopUp());
+    };
+
+    const openAddNote = () => {
+        if(currentClick.current === 'background'){
+            dispatch(ChangeAddNoteContent({is_first:1}));
+        }
+        dispatch(ChangeKind('addNote'));
+        dispatch(OpenPopUp());
+    };
+
+    const openUpdateName = () => {
+        if(currentClick.current !== 'background'){
+            dispatch(ChangeKind('updateName'));
+            dispatch(OpenPopUp());
+        }
     };
 
     return(
@@ -66,6 +82,8 @@ function NotesContainer() {
             >
                 <NotesListMenu
                     onClickAddFolder={openAddFolder}
+                    onClickAddNote={openAddNote}
+                    onClickUpdateName={openUpdateName}
                 />
             </NotesList>
         </ContainerBlock>

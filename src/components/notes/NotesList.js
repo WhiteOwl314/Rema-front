@@ -7,7 +7,6 @@ const NotesListBlock = styled.div`
     width: 200px;
     height: 100%;
     box-sizing: border-box;
-    overflow: auto;
     background: #f7f7f7;
     border-right: 1px solid #e9ecef;
     position: relative;
@@ -25,6 +24,7 @@ const NotesListItemContainer= styled.div`
     height: 100%;
     display: flex;
     flex-direction: column;
+    overflow: auto;
 `;
 
 const Background= styled.div`

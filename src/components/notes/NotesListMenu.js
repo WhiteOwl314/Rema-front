@@ -2,8 +2,6 @@ import React from 'react';
 import styled from "styled-components";
 import {
     TiFolderAdd,
-    TiFolderOpen,
-    TiFolder,
     TiDocumentAdd
 } from "react-icons/ti";
 import {CgRename} from "react-icons/cg";
@@ -39,7 +37,7 @@ const IconContainer = styled.div`
     }
 `;
 
-function NotesListMenu({onClickAddFolder}) {
+function NotesListMenu({onClickAddFolder,onClickAddNote,onClickUpdateName}) {
     return (
         <NotesListMenuBlock>
             <IconContext.Provider
@@ -53,10 +51,14 @@ function NotesListMenu({onClickAddFolder}) {
                 >
                     <TiFolderAdd/>
                 </IconContainer>
-                <IconContainer>
+                <IconContainer
+                    onClick={onClickAddNote}
+                >
                     <TiDocumentAdd/>
                 </IconContainer>
-                <IconContainer>
+                <IconContainer
+                    onClick={onClickUpdateName}
+                >
                     <CgRename/>
                 </IconContainer>
                 <IconContainer>

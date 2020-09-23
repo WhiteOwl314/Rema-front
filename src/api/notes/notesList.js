@@ -14,11 +14,22 @@ export const getFolderOrderList = async () => {
     })
 };
 
-export const addFolder = async (formState) => {
+export const addNotesList = async (formState) => {
     const response = await axios({
         method: 'post',
-        url: 'http://localhost:8080/notesList/addFolder',
-        // data: { title, is_first }
+        url: 'http://localhost:8080/notesList/addNotesList',
+        // data: { title, is_first, isFolder }
+        data: formState
+    });
+
+    return response.data;
+};
+
+export const updateName = async (formState) => {
+    const response = await axios({
+        method: 'post',
+        url: 'http://localhost:8080/notesList/updateName',
+        // data: {id, title }
         data: formState
     });
 
