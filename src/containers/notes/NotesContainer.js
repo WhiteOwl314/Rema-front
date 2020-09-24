@@ -6,6 +6,7 @@ import NotesList from "../../components/notes/NotesList";
 import NotesListMenu from "../../components/notes/NotesListMenu";
 import {ClickItem, Delete, GetFolderOrderList, GetNotesList} from "../../modules/notes/notesList";
 import {ChangeAddFolderContent, ChangeAddNoteContent, ChangeKind, OpenPopUp} from "../../modules/popUp";
+import NoteView from "../../components/notes/NoteView";
 
 
 const ContainerBlock = styled.div`
@@ -93,6 +94,7 @@ function NotesContainer() {
                     onClickDelete={onClickDelete}
                 />
             </NotesList>
+            <NoteView/>
         </ContainerBlock>
     )
 }

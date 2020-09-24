@@ -56,9 +56,6 @@ function MainSide({history}) {
                     size: '25'
                 }}
             >
-                <SideMenuItem>
-                    <CgInbox/>
-                </SideMenuItem>
                 <SideMenuItem
                     onClick={() => history.push('/notes')}
                 >
@@ -66,9 +63,6 @@ function MainSide({history}) {
                 </SideMenuItem>
                 <SideMenuItem>
                     <BiTask/>
-                </SideMenuItem>
-                <SideMenuItem>
-                    <GoTrashcan/>
                 </SideMenuItem>
             </IconContext.Provider>
         </MainSideBlock>
