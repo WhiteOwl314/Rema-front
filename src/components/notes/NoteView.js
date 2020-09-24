@@ -1,9 +1,8 @@
 import React from 'react';
 import styled,{css} from "styled-components";
 import Button from "../../lib/css/Button";
-import {AiOutlineMenu} from "react-icons/ai";
-import {IconContext} from "react-icons";
 import NoteReviewDate from "./NoteReviewDate";
+import NoteTextArea from "./NoteTextArea";
 
 const NoteViewBlock = styled.div`
     width: 100%;
@@ -24,6 +23,7 @@ const Header = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    background:white;
 `;
 
 const HeaderMenu = styled.div`
@@ -65,9 +65,28 @@ const NoteHeaderTitle = styled.input.attrs({
     border: none;
 `;
 
+const TextArea = styled.textarea.attrs({
+    rows:"5",
+    cols:"33",
+    placeholder: '내용'
+})`
+    width: 100%;
+    resize: none;
+    border: 1px solid black;
+    outline: none;
+    margin-top: 20px;
+    height: 900px;
+`;
+
 
 
 function NoteView() {
+
+    const resize = (obj) => {
+        obj.style.height = "1px";
+        obj.style.height =  (12+obj.scrollHeight)+"px";
+    };
+
     return (
         <NoteViewBlock>
             <Header>
@@ -91,6 +110,11 @@ function NoteView() {
                         <NoteHeaderTitle/>
                     </NoteHeader>
                     <NoteReviewDate/>
+                    {/*<TextArea*/}
+                    {/*    onKeydown={()=>resize(this)}*/}
+                    {/*    onKeyup={()=>resize(this)}*/}
+                    {/*/>*/}
+                    <NoteTextArea/>
                 </NoteTemplate>
             </Body>
         </NoteViewBlock>
