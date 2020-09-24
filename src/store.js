@@ -3,6 +3,7 @@ import {connectRouter, routerMiddleware} from "connected-react-router";
 import member from './modules/member/member';
 import mypage from './modules/member/mypage';
 import notesList from './modules/notes/notesList';
+import note from './modules/notes/note';
 import popUp from './modules/popUp';
 import ReduxThunk from "redux-thunk";
 import logger from "redux-logger";
@@ -16,6 +17,7 @@ export function configureStore(history) {
             member,
             mypage,
             notesList,
+            note,
             popUp,
             router: connectRouter(history)
         }),

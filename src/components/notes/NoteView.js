@@ -65,27 +65,7 @@ const NoteHeaderTitle = styled.input.attrs({
     border: none;
 `;
 
-const TextArea = styled.textarea.attrs({
-    rows:"5",
-    cols:"33",
-    placeholder: '내용'
-})`
-    width: 100%;
-    resize: none;
-    border: 1px solid black;
-    outline: none;
-    margin-top: 20px;
-    height: 900px;
-`;
-
-
-
 function NoteView() {
-
-    const resize = (obj) => {
-        obj.style.height = "1px";
-        obj.style.height =  (12+obj.scrollHeight)+"px";
-    };
 
     return (
         <NoteViewBlock>
@@ -110,10 +90,6 @@ function NoteView() {
                         <NoteHeaderTitle/>
                     </NoteHeader>
                     <NoteReviewDate/>
-                    {/*<TextArea*/}
-                    {/*    onKeydown={()=>resize(this)}*/}
-                    {/*    onKeyup={()=>resize(this)}*/}
-                    {/*/>*/}
                     <NoteTextArea/>
                 </NoteTemplate>
             </Body>

@@ -56,7 +56,8 @@ function NoteTextArea() {
                 overflow: 'auto',
                 height: 'auto',
                 lineHeight: '24px',
-                fontSize: '20px'
+                fontSize: '20px',
+                width: '100%'
             }}
         />
     );

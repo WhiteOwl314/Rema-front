@@ -7,6 +7,7 @@ import NotesListMenu from "../../components/notes/NotesListMenu";
 import {ClickItem, Delete, GetFolderOrderList, GetNotesList} from "../../modules/notes/notesList";
 import {ChangeAddFolderContent, ChangeAddNoteContent, ChangeKind, OpenPopUp} from "../../modules/popUp";
 import NoteView from "../../components/notes/NoteView";
+import {GetNote} from "../../modules/notes/note";
 
 
 const ContainerBlock = styled.div`
@@ -48,6 +49,7 @@ function NotesContainer() {
     const onClickItem = (id) => {
         console.log(id);
         dispatch(ClickItem({current:id}));
+        dispatch(GetNote(id));
     };
 
     const openAddFolder = () => {
@@ -77,7 +79,7 @@ function NotesContainer() {
         if(currentClick.current !== 'background'){
             dispatch(Delete());
         }
-    }
+    };
 
     return(
         <ContainerBlock>

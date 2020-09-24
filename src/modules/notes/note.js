@@ -1,46 +1,47 @@
 import * as noteAPI from '../../api/notes/note';
 import {push} from "connected-react-router";
-import {handleAsyncActions, reducerUtils} from "../../lib/asyncUtils";
+import {handleAsyncActionById, handleAsyncActions, reducerUtils} from "../../lib/asyncUtils";
 
-//노트목록 가져오기
-const GET_NOTE_LIST = 'GET_NOTE_LIST';
-const GET_NOTE_LIST_SUCCESS = 'GET_NOTE_LIST_SUCCESS';
-const GET_NOTE_LIST_ERROR = 'GET_NOTE_LIST_ERROR';
+//노트 가져오기
+const GET_NOTE = 'note/GET_NOTE';
+const GET_NOTE_SUCCESS = 'note/GET_NOTE_SUCCESS';
+const GET_NOTE_ERROR = 'note/GET_NOTE_ERROR';
 
-export const GetNoteList = param => async (dispatch, getState) => {
-    dispatch({type:GET_NOTE_LIST});
+export const GetNote = param => async (dispatch, getState) => {
+    const id = param;
+    dispatch({type: GET_NOTE, meta: id});
 
-    await noteAPI.getNoteList()
+    await noteAPI.getNote(id)
         .then(response => {
             const payload = response.data;
-            dispatch({type:GET_NOTE_LIST_SUCCESS, payload});
+            dispatch({type: GET_NOTE_SUCCESS, payload, meta: id});
         })
         .catch(error => {
             const status = error.response.status;
             const payload = error.data;
-            dispatch({type:GET_NOTE_LIST_ERROR, payload: payload, error: true});
-            if(
+            dispatch({type: GET_NOTE_ERROR, payload: payload, error: true, meta: id});
+            if (
                 status === 403
                 || status === 401
-            ){
+            ) {
                 dispatch(push('/member/login'));
             }
-            if(status === 404){
+            if (status === 404) {
                 dispatch(push('/404'))
             }
-        })
+        });
 };
 
 const initialState = {
-    getNoteList: reducerUtils.initial()
+    getNote: {}
 };
 
 export default function note (state = initialState, action) {
     switch (action.type) {
-        case GET_NOTE_LIST:
-        case GET_NOTE_LIST_SUCCESS:
-        case GET_NOTE_LIST_ERROR:
-            return handleAsyncActions(GET_NOTE_LIST, 'getNoteList', true)
+        case GET_NOTE:
+        case GET_NOTE_SUCCESS:
+        case GET_NOTE_ERROR:
+            return handleAsyncActionById(GET_NOTE, 'getNote')
                 (state, action);
         default:
             return state;
