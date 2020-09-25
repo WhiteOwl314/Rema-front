@@ -8,7 +8,7 @@ import {ClickItem, Delete, GetFolderOrderList, GetNotesList} from "../../modules
 import {ChangeAddFolderContent, ChangeAddNoteContent, ChangeKind, OpenPopUp} from "../../modules/popUp";
 import NoteView from "../../components/notes/NoteView";
 import {ChangeNote, GetNote, UpdateNote} from "../../modules/notes/note";
-import {AddReviewDate, GetReviewDateList} from "../../modules/review/review";
+import {AddReviewDate, ClickReviewDate, GetReviewDateList} from "../../modules/review/review";
 
 
 const ContainerBlock = styled.div`
@@ -100,9 +100,10 @@ function NotesContainer() {
         dispatch(AddReviewDate(note_id));
     };
 
-    const changeReviewDate = (e) => {
-        const{value, id} = e.target;
-
+    const openUpdateReviewDate = (id) => {
+        dispatch(ClickReviewDate({current:id}));
+        dispatch(ChangeKind('changeReviewDate'));
+        dispatch(OpenPopUp());
     };
 
     return(
@@ -124,6 +125,7 @@ function NotesContainer() {
                 onChangeNote={onChangeNote}
                 updateNote={updateNote}
                 onAddReviewDate={onAddReviewDate}
+                openUpdateReviewDate={openUpdateReviewDate}
             />
         </ContainerBlock>
     )

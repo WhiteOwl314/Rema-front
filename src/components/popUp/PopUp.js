@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import AddFolderPopUpWindow from "./AddFolderPopUpWindow";
 import {
     ChangeAddFolderContent,
-    ChangeAddNoteContent,
+    ChangeAddNoteContent, ChangeReviewDateContent,
     ChangeUpdateNameContent,
     ClearContent,
     ClosePopUp
@@ -12,6 +12,8 @@ import {
 import {AddFolder, AddNote, GetFolderOrderList, GetNotesList, UpdateName} from "../../modules/notes/notesList";
 import AddNotePopUpWindow from "./AddNotePopUpWindow";
 import UpdateNamePopUpWindow from "./UpdateNamePopUpWindow";
+import UpdateReviewDatePopUpWindow from "./UpdateReviewDatePopUpWindow";
+import {UpdateReviewDate} from "../../modules/review/review";
 
 
 const Mask = styled.div`
@@ -100,6 +102,10 @@ function PopUp() {
         dispatch(ChangeUpdateNameContent({[name]:value}));
     };
 
+    const onChangeReviewDate = (e) => {
+        const {name, value} = e.target;
+        dispatch(ChangeReviewDateContent({[name]:value}));
+    };
 
     const onClickAddFolder = async () => {
         await dispatch(AddFolder());
@@ -111,6 +117,10 @@ function PopUp() {
 
     const onClickUpdateName = async () => {
         await dispatch(UpdateName());
+    };
+
+    const onUpdateReviewDate = async () => {
+        await dispatch(UpdateReviewDate());
     };
 
     return (
@@ -140,6 +150,14 @@ function PopUp() {
                         content={content}
                         onSave={onClickUpdateName}
                     />
+                }
+                {_kind === 'changeReviewDate'
+                && <UpdateReviewDatePopUpWindow
+                    onClickCancle={onClickCancle}
+                    onChange={onChangeReviewDate}
+                    content={content}
+                    onSave={onUpdateReviewDate}
+                />
                 }
             </LayerPopBlock>
         </>

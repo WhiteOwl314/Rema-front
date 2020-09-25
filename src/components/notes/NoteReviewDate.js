@@ -68,7 +68,7 @@ const DateInput = styled.div`
 
 
 
-function NoteReviewDate({currentClick,onAddReviewDate}) {
+function NoteReviewDate({currentClick,onAddReviewDate,openUpdateReviewDate}) {
 
     const reviewDateState = useSelector(state => state.review.reviewDateList);
     let currentReviewDateList = null;
@@ -123,6 +123,7 @@ function NoteReviewDate({currentClick,onAddReviewDate}) {
                                             marginLeft: '15px',
                                         }}
                                         backgroundColor='fourthC'
+                                        onClick={() => openUpdateReviewDate(item.id)}
                                     >
                                         수정
                                     </Button>

@@ -31,6 +31,12 @@ const CHANGE_UPDATE_NAME_CONTENT = 'popUp/CHANGE_UPDATE_NAME_CONTENT';
 
 export const ChangeUpdateNameContent = formState => ({type: CHANGE_UPDATE_NAME_CONTENT, formState});
 
+
+// 시간변경 내용 변경
+const CHANGE_REVIEW_DATE_CONTENT = 'popUp/CHANGE_REVIEW_DATE_CONTENT';
+
+export const ChangeReviewDateContent = formState => ({type: CHANGE_REVIEW_DATE_CONTENT, formState});
+
 // 내용 초기화
 const CLEAR_CONTENT = 'popUp/CLEAR_CONTENT';
 
@@ -43,7 +49,8 @@ const initialState = {
     content: {
         addFolder:{title:'', is_first:0},
         addNote:{title:'', is_first:0},
-        updateName:{title:''}
+        updateName:{title:''},
+        updateReviewDate:{date:''}
     }
 };
 
@@ -105,6 +112,17 @@ export default function popUp(state=initialState, action) {
                     ...state.content,
                     updateName:{
                         ...state.content.updateName,
+                        ...action.formState
+                    }
+                }
+            };
+        case CHANGE_REVIEW_DATE_CONTENT:
+            return {
+                ...state,
+                content: {
+                    ...state.content,
+                    updateReviewDate:{
+                        ...state.content.updateReviewDate,
                         ...action.formState
                     }
                 }
