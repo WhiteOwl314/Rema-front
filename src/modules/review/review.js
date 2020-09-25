@@ -68,6 +68,43 @@ export const AddReviewDate = param => async (dispatch, getState) => {
 };
 
 
+//삭제
+const DELETE_REVIEW_DATE = 'review/DELETE_REVIEW_DATE';
+const DELETE_REVIEW_DATE_SUCCESS = 'review/DELETE_REVIEW_DATE_SUCCESS';
+const DELETE_REVIEW_DATE_ERROR = 'review/DELETE_REVIEW_DATE_ERROR';
+
+export const DeleteReviewDate = param => async (dispatch, getState) => {
+    const id = getState().review.currentClick.current;
+    const note_id = getState().notesList.currentClick.current;
+    const formData = {
+        id: id
+    };
+
+    dispatch({type: DELETE_REVIEW_DATE});
+
+    await reveiwAPI.deleteReviewDate(formData)
+        .then(response => {
+            const payload = response.data;
+            dispatch({type: DELETE_REVIEW_DATE_SUCCESS, payload});
+            dispatch(GetReviewDateList(note_id));
+        })
+        .catch(error => {
+            const status = error.response.status;
+            const payload = error.data;
+            dispatch({type: DELETE_REVIEW_DATE_ERROR, payload: payload, error: true});
+            if (
+                status === 403
+                || status === 401
+            ) {
+                dispatch(push('/member/login'));
+            }
+            if (status === 404) {
+                dispatch(push('/404'))
+            }
+        });
+};
+
+
 //수정
 const UPDATE_REVIEW_DATE = 'review/UPDATE_REVIEW_DATE';
 const UPDATE_REVIEW_DATE_SUCCESS = 'review/UPDATE_REVIEW_DATE_SUCCESS';
@@ -117,7 +154,8 @@ const initialState = {
     currentClick: {current: ''},
     reviewDateList: {},
     addReviewDate: reducerUtils.initial(),
-    updateReviewDate: reducerUtils.initial()
+    updateReviewDate: reducerUtils.initial(),
+    deleteReviewDate: reducerUtils.initial()
 };
 
 export default function review (state = initialState, action) {
@@ -144,6 +182,11 @@ export default function review (state = initialState, action) {
         case UPDATE_REVIEW_DATE_SUCCESS:
         case UPDATE_REVIEW_DATE_ERROR:
             return handleAsyncActions(UPDATE_REVIEW_DATE, 'updateReviewDate')
+            (state, action);
+        case DELETE_REVIEW_DATE:
+        case DELETE_REVIEW_DATE_SUCCESS:
+        case DELETE_REVIEW_DATE_ERROR:
+            return handleAsyncActions(DELETE_REVIEW_DATE, 'deleteReviewDate')
             (state, action);
         default:
             return state;

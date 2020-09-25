@@ -68,7 +68,7 @@ const DateInput = styled.div`
 
 
 
-function NoteReviewDate({currentClick,onAddReviewDate,openUpdateReviewDate}) {
+function NoteReviewDate({currentClick,onAddReviewDate,openUpdateReviewDate,onDeleteReviewDate}) {
 
     const reviewDateState = useSelector(state => state.review.reviewDateList);
     let currentReviewDateList = null;
@@ -136,6 +136,7 @@ function NoteReviewDate({currentClick,onAddReviewDate,openUpdateReviewDate}) {
                                             marginLeft: '15px',
                                         }}
                                         backgroundColor='fourthC'
+                                        onClick={() => onDeleteReviewDate(item.id)}
                                     >
                                         삭제
                                     </Button>

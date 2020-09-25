@@ -13,7 +13,7 @@ import {AddFolder, AddNote, GetFolderOrderList, GetNotesList, UpdateName} from "
 import AddNotePopUpWindow from "./AddNotePopUpWindow";
 import UpdateNamePopUpWindow from "./UpdateNamePopUpWindow";
 import UpdateReviewDatePopUpWindow from "./UpdateReviewDatePopUpWindow";
-import {UpdateReviewDate} from "../../modules/review/review";
+import {ClickReviewDate, DeleteReviewDate, UpdateReviewDate} from "../../modules/review/review";
 
 
 const Mask = styled.div`
@@ -122,6 +122,8 @@ function PopUp() {
     const onUpdateReviewDate = async () => {
         await dispatch(UpdateReviewDate());
     };
+
+
 
     return (
         <>

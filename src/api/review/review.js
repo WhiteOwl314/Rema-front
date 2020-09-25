@@ -31,3 +31,12 @@ export const updateReviewDate = async (formState) => {
         data: formState
     })
 };
+
+export const deleteReviewDate = async (formState) => {
+    return await axios({
+        method: 'post',
+        url: 'http://localhost:8080/review/deleteReviewDate',
+        //id
+        data: formState
+    })
+};

@@ -67,7 +67,7 @@ const NoteHeaderTitle = styled.input.attrs({
 `;
 
 function NoteView({
-                      onChangeNote,updateNote,onAddReviewDate,openUpdateReviewDate
+                      onChangeNote,updateNote,onAddReviewDate,openUpdateReviewDate,onDeleteReviewDate
 }) {
 
     const noteInfo = useSelector(state => state.note.getNote);
@@ -123,6 +123,7 @@ function NoteView({
                                         currentClick={currentClick}
                                         onAddReviewDate={onAddReviewDate}
                                         openUpdateReviewDate={openUpdateReviewDate}
+                                        onDeleteReviewDate={onDeleteReviewDate}
                                     />
                                     <NoteTextArea
                                         noteContent={currentNoteInfo.content}
