@@ -7,7 +7,7 @@ import NotesListMenu from "../../components/notes/NotesListMenu";
 import {ClickItem, Delete, GetFolderOrderList, GetNotesList} from "../../modules/notes/notesList";
 import {ChangeAddFolderContent, ChangeAddNoteContent, ChangeKind, OpenPopUp} from "../../modules/popUp";
 import NoteView from "../../components/notes/NoteView";
-import {GetNote} from "../../modules/notes/note";
+import {ChangeNote, GetNote, UpdateNote} from "../../modules/notes/note";
 
 
 const ContainerBlock = styled.div`
@@ -81,6 +81,19 @@ function NotesContainer() {
         }
     };
 
+    const onChangeNote = (e) => {
+        const{name, value} = e.target;
+        const formState = {
+            id: currentClick.current,
+            payload: {[name]:value}
+        };
+        dispatch(ChangeNote(formState));
+    };
+
+    const updateNote = () => {
+        dispatch(UpdateNote());
+    };
+
     return(
         <ContainerBlock>
             <NotesList
@@ -96,7 +109,10 @@ function NotesContainer() {
                     onClickDelete={onClickDelete}
                 />
             </NotesList>
-            <NoteView/>
+            <NoteView
+                onChangeNote={onChangeNote}
+                updateNote={updateNote}
+            />
         </ContainerBlock>
     )
 }

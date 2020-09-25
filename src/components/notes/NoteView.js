@@ -3,6 +3,7 @@ import styled,{css} from "styled-components";
 import Button from "../../lib/css/Button";
 import NoteReviewDate from "./NoteReviewDate";
 import NoteTextArea from "./NoteTextArea";
+import {useSelector} from "react-redux";
 
 const NoteViewBlock = styled.div`
     width: 100%;
@@ -65,35 +66,70 @@ const NoteHeaderTitle = styled.input.attrs({
     border: none;
 `;
 
-function NoteView() {
+function NoteView({
+                      onChangeNote,updateNote
+}) {
+
+    const noteInfo = useSelector(state => state.note.getNote);
+    const currentClick = useSelector(state => state.notesList.currentClick.current);
+
+    let is_folder = 1;
+    let currentNoteInfo = null;
+
+    if(currentClick === 'background') return null;
+    if(noteInfo[currentClick]){
+        if(noteInfo[currentClick].data){
+            if(noteInfo[currentClick].data.is_folder===0){
+                is_folder = 0;
+                currentNoteInfo = noteInfo[currentClick].data;
+                console.log(currentNoteInfo);
+            }
+        }
+    }
 
     return (
-        <NoteViewBlock>
-            <Header>
-                <HeaderMenu>
-                    <Button
-                        size='medium'
-                        backgroundColor='fourthC'
-                        style={{
-                            width: '50px',
-                            height: '23px',
-                            fontSize: '13px'
-                        }}
-                    >
-                        저장
-                    </Button>
-                </HeaderMenu>
-            </Header>
-            <Body>
-                <NoteTemplate>
-                    <NoteHeader>
-                        <NoteHeaderTitle/>
-                    </NoteHeader>
-                    <NoteReviewDate/>
-                    <NoteTextArea/>
-                </NoteTemplate>
-            </Body>
-        </NoteViewBlock>
+        <>
+            {
+                is_folder === 1
+                    ? null
+                    :(
+                        <NoteViewBlock>
+                            <Header>
+                                <HeaderMenu>
+                                    <Button
+                                        size='medium'
+                                        backgroundColor='fourthC'
+                                        style={{
+                                            width: '50px',
+                                            height: '23px',
+                                            fontSize: '13px'
+                                        }}
+                                        onClick={updateNote}
+                                    >
+                                        저장
+                                    </Button>
+                                </HeaderMenu>
+                            </Header>
+                            <Body>
+                                <NoteTemplate>
+                                    <NoteHeader>
+                                        <NoteHeaderTitle
+                                            name={'title'}
+                                            value={currentNoteInfo.title}
+                                            onChange={onChangeNote}
+                                        />
+                                    </NoteHeader>
+                                    <NoteReviewDate/>
+                                    <NoteTextArea
+                                        noteContent={currentNoteInfo.content}
+                                        onChangeNote={onChangeNote}
+                                    />
+                                </NoteTemplate>
+                            </Body>
+                        </NoteViewBlock>
+                    )
+            }
+        </>
     )
 }
 

@@ -1,12 +1,11 @@
 import React,{useState} from 'react';
 
-function NoteTextArea() {
+function NoteTextArea({noteContent,onChangeNote}) {
 
     const [state, setState] = useState({
-        value: '',
-        rows: 5,
-        minRows: 5,
-        maxRows: 10,
+        rows: 14,
+        minRows: 14,
+        maxRows: 100,
     });
 
     console.log(state);
@@ -15,15 +14,10 @@ function NoteTextArea() {
         const textareaLineHeight = 24;
         const { minRows, maxRows } = state;
 
-        console.log(minRows);
-        console.log(maxRows);
-
         const previousRows = event.target.rows;
-        console.log(previousRows);
         event.target.rows = minRows;
 
         const currentRows = ~~(event.target.scrollHeight / textareaLineHeight);
-        console.log(currentRows);
 
         if (currentRows === previousRows) {
             event.target.rows = currentRows;
@@ -35,19 +29,25 @@ function NoteTextArea() {
 
         setState({
             ...state,
-            value: event.target.value,
             rows: currentRows < maxRows ? currentRows : maxRows,
         });
+
+        onChangeNote(event);
     };
+
 
 
 
     return (
         <textarea
+            name={'content'}
             rows={state.rows}
-            value={state.value}
-            placeholder={'Enter your text here...'}
-            className={'textarea'}
+            value={
+                noteContent === null
+                    ? ''
+                    : noteContent
+            }
+            placeholder={'내용...'}
             onChange={onChange}
             style={{
                 boxSizing: 'border-box',
@@ -56,8 +56,10 @@ function NoteTextArea() {
                 overflow: 'auto',
                 height: 'auto',
                 lineHeight: '24px',
-                fontSize: '20px',
-                width: '100%'
+                fontSize: '15px',
+                width: '100%',
+                outline: 'none',
+                marginTop: '20px'
             }}
         />
     );
