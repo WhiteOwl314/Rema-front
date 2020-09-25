@@ -4,6 +4,8 @@ import styled from "styled-components";
 import {AiOutlineMenu} from "react-icons/ai";
 import {BiTimeFive} from "react-icons/bi";
 import {AiOutlinePlus} from "react-icons/ai";
+import {useSelector} from "react-redux";
+import LoadingPage from "../common/LoadingPage";
 
 const NoteReviewDateBlock = styled.div`
     width: 100%;
@@ -68,7 +70,21 @@ const DateInput = styled.input.attrs({
 
 
 
-function NoteReviewDate() {
+function NoteReviewDate({currentClick,onAddReviewDate}) {
+
+    const reviewDateState = useSelector(state => state.review.reviewDateList);
+    let currentReviewDateList = null;
+
+    if(reviewDateState[currentClick]){
+        if(reviewDateState[currentClick].data){
+            currentReviewDateList = reviewDateState[currentClick].data;
+        }
+    }
+
+    console.log(currentReviewDateList);
+
+    if(reviewDateState[currentClick].loading) return <LoadingPage/>;
+
     return (
         <NoteReviewDateBlock>
             <IconContext.Provider
@@ -77,45 +93,45 @@ function NoteReviewDate() {
                     size: '15'
                 }}
             >
-                <Option>
-                    <IconContainer>
-                        <AiOutlineMenu/>
-                    </IconContainer>
-                    <OptionHeader>
-                        종류
-                    </OptionHeader>
-                    <OptionBody>
-                        <InputContainer>
-                            <RadioInput id="default" name="kind" value="default"
-                                   checked/>
-                            <Label htmlFor="default">기본</Label>
-                        </InputContainer>
-                        <InputContainer>
-                            <RadioInput id="custom" name="kind" value="custom"
-                            />
-                            <Label htmlFor="custom">사용자 설정</Label>
-                        </InputContainer>
-                    </OptionBody>
-                </Option>
-                <Option>
-                    <IconContainer>
-                        <BiTimeFive/>
-                    </IconContainer>
-                    <OptionHeader>
-                        복습
-                    </OptionHeader>
-                    <OptionBody>
-                        <InputContainer>
-                            <DateInput name="reviewDate" value="2020-09-25"/>
-                        </InputContainer>
-                    </OptionBody>
-                </Option>
-                <Option>
+                {
+                    currentReviewDateList &&
+                    currentReviewDateList.map(item => {
+                        let date = item.date.split(" ")[0];
+                        return (
+                            <Option
+                                key={item.id}
+                            >
+                                <IconContainer>
+                                    <BiTimeFive/>
+                                </IconContainer>
+                                <OptionHeader>
+                                    복습
+                                </OptionHeader>
+                                <OptionBody>
+                                    <InputContainer>
+                                        <DateInput
+                                            id={item.id}
+                                            name="reviewDate"
+                                            value={date}
+                                        />
+                                    </InputContainer>
+                                </OptionBody>
+                            </Option>
+                        )
+                    })
+                }
+                <Option
+                    style={{
+                        marginTop: '15px',
+                        cursor: 'pointer'
+                    }}
+                    onClick={onAddReviewDate}
+                >
                     <IconContainer>
                         <AiOutlinePlus/>
                     </IconContainer>
                     <OptionHeader>
-                        추가
+                        복습 추가
                     </OptionHeader>
                 </Option>
             </IconContext.Provider>

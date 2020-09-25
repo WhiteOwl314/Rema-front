@@ -4,6 +4,7 @@ import member from './modules/member/member';
 import mypage from './modules/member/mypage';
 import notesList from './modules/notes/notesList';
 import note from './modules/notes/note';
+import review from './modules/review/review';
 import popUp from './modules/popUp';
 import ReduxThunk from "redux-thunk";
 import logger from "redux-logger";
@@ -18,6 +19,7 @@ export function configureStore(history) {
             mypage,
             notesList,
             note,
+            review,
             popUp,
             router: connectRouter(history)
         }),

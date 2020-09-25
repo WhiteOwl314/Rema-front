@@ -8,6 +8,7 @@ import {ClickItem, Delete, GetFolderOrderList, GetNotesList} from "../../modules
 import {ChangeAddFolderContent, ChangeAddNoteContent, ChangeKind, OpenPopUp} from "../../modules/popUp";
 import NoteView from "../../components/notes/NoteView";
 import {ChangeNote, GetNote, UpdateNote} from "../../modules/notes/note";
+import {AddReviewDate, GetReviewDateList} from "../../modules/review/review";
 
 
 const ContainerBlock = styled.div`
@@ -50,6 +51,7 @@ function NotesContainer() {
         console.log(id);
         dispatch(ClickItem({current:id}));
         dispatch(GetNote(id));
+        dispatch(GetReviewDateList(id));
     };
 
     const openAddFolder = () => {
@@ -94,6 +96,10 @@ function NotesContainer() {
         dispatch(UpdateNote());
     };
 
+    const onAddReviewDate = async (note_id) => {
+        // await dispatch(AddReviewDate(note_id));
+    };
+
     return(
         <ContainerBlock>
             <NotesList
@@ -112,6 +118,7 @@ function NotesContainer() {
             <NoteView
                 onChangeNote={onChangeNote}
                 updateNote={updateNote}
+                onAddReviewDate={onAddReviewDate}
             />
         </ContainerBlock>
     )
