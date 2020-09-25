@@ -96,8 +96,8 @@ function NotesContainer() {
         dispatch(UpdateNote());
     };
 
-    const onAddReviewDate = async (note_id) => {
-        // await dispatch(AddReviewDate(note_id));
+    const onAddReviewDate = (note_id) => {
+        dispatch(AddReviewDate(note_id));
     };
 
     return(
