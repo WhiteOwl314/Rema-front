@@ -100,6 +100,11 @@ function NotesContainer() {
         dispatch(AddReviewDate(note_id));
     };
 
+    const changeReviewDate = (e) => {
+        const{value, id} = e.target;
+
+    };
+
     return(
         <ContainerBlock>
             <NotesList

@@ -1,11 +1,11 @@
 import React from 'react';
 import {IconContext} from "react-icons";
 import styled from "styled-components";
-import {AiOutlineMenu} from "react-icons/ai";
 import {BiTimeFive} from "react-icons/bi";
-import {AiOutlinePlus} from "react-icons/ai";
 import {useSelector} from "react-redux";
 import LoadingPage from "../common/LoadingPage";
+import {BsPlus} from "react-icons/bs";
+import Button from "../../lib/css/Button";
 
 const NoteReviewDateBlock = styled.div`
     width: 100%;
@@ -56,9 +56,7 @@ const Label = styled.label`
     font-size: 14px;
 `;
 
-const DateInput = styled.input.attrs({
-    type: 'date'
-})`
+const DateInput = styled.div`
     display: flex;
     justify-content: flex-first;
     align-items: center;
@@ -112,9 +110,34 @@ function NoteReviewDate({currentClick,onAddReviewDate}) {
                                         <DateInput
                                             id={item.id}
                                             name="reviewDate"
-                                            value={date}
-                                        />
+                                        >
+                                            {date}
+                                        </DateInput>
                                     </InputContainer>
+                                    <Button
+                                        style={{
+                                            width: '34px',
+                                            height: '15px',
+                                            fontSize: '10px',
+                                            borderRadius: '2px',
+                                            marginLeft: '15px',
+                                        }}
+                                        backgroundColor='fourthC'
+                                    >
+                                        수정
+                                    </Button>
+                                    <Button
+                                        style={{
+                                            width: '34px',
+                                            height: '15px',
+                                            fontSize: '10px',
+                                            borderRadius: '2px',
+                                            marginLeft: '15px',
+                                        }}
+                                        backgroundColor='fourthC'
+                                    >
+                                        삭제
+                                    </Button>
                                 </OptionBody>
                             </Option>
                         )
@@ -128,7 +151,7 @@ function NoteReviewDate({currentClick,onAddReviewDate}) {
                     onClick={onAddReviewDate}
                 >
                     <IconContainer>
-                        <AiOutlinePlus/>
+                        <BsPlus/>
                     </IconContainer>
                     <OptionHeader>
                         복습 추가
