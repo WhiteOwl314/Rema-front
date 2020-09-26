@@ -53,7 +53,6 @@ function MainHeader({history,onClickLogout}) {
                 REMA
             </HeaderLogo>
             <HeaderMenu>
-                <HeaderMenuItem>설정</HeaderMenuItem>
                 <HeaderMenuItem
                     onClick={()=>history.push('/mypage')}
                 >

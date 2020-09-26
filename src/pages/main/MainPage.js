@@ -7,6 +7,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {LoginCheck} from "../../modules/member/member";
 import LoadingPage from "../../components/common/LoadingPage";
 import NotesPage from "../notes/NotesPage";
+import ReviewListPage from "../review/ReviewListPage";
 
 function MainPage({match, history}) {
 
@@ -46,6 +47,11 @@ function MainPage({match, history}) {
                             <Route
                                 path={`${match.path}notes`}
                                 component={NotesPage}
+                                exact
+                            />
+                            <Route
+                                path={`${match.path}review`}
+                                component={ReviewListPage}
                                 exact
                             />
                             <Route

@@ -61,7 +61,9 @@ function MainSide({history}) {
                 >
                     <MdLibraryBooks/>
                 </SideMenuItem>
-                <SideMenuItem>
+                <SideMenuItem
+                    onClick={() => history.push('/review')}
+                >
                     <BiTask/>
                 </SideMenuItem>
             </IconContext.Provider>
