@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import MemberForm from '../../components/member/memberForm/MemberForm';
 import {useSelector, useDispatch} from "react-redux";
-import {AddMember, CheckEmail, CheckId, clearLogin} from "../../modules/member/member";
+import {AddMember, CheckEmail, CheckId,} from "../../modules/member/member";
 import MemberFormTemplate from "../../components/member/memberForm/MemberFormTemplate";
 import MemberFormHeader from "../../components/member/memberForm/MemberFormHeader";
 

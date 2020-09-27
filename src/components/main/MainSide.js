@@ -1,10 +1,8 @@
 import React from 'react';
 import styled,{css} from 'styled-components';
-import {CgInbox} from "react-icons/cg";
 import {IconContext} from "react-icons";
 import {MdLibraryBooks} from "react-icons/md";
 import {BiTask} from "react-icons/bi";
-import {GoTrashcan} from "react-icons/go";
 import {darken} from 'polished';
 
 const MainSideBlock = styled.div`

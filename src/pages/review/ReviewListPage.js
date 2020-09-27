@@ -1,6 +1,13 @@
 import React, {useEffect} from 'react';
 import ReviewListContainer from "../../containers/review/ReviewListContainer";
 import ReviewSearchContainer from "../../containers/review/ReviewSearchContainer";
+import styled from "styled-components";
+
+const ContainerBlock = styled.div`
+    width: 100%;
+    height: 100%;
+    position: relative;
+`;
 
 function ReviewListPage() {
 
@@ -9,10 +16,10 @@ function ReviewListPage() {
     }, []);
 
     return(
-        <>
+        <ContainerBlock>
             <ReviewSearchContainer/>
             <ReviewListContainer/>
-        </>
+        </ContainerBlock>
     );
 }
 

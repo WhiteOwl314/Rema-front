@@ -1,6 +1,5 @@
 import React from 'react';
 import LoadingPage from "../../common/LoadingPage";
-import ErrorPage from "../../common/ErrorPage";
 import styled from "styled-components";
 import Button from "../../../lib/css/Button";
 
@@ -53,7 +52,6 @@ function LoginForm({
     onSubmit,
     formState,
     loginState,
-    dispatch,
     history
 }) {
 

@@ -8,6 +8,7 @@ import {LoginCheck} from "../../modules/member/member";
 import LoadingPage from "../../components/common/LoadingPage";
 import NotesPage from "../notes/NotesPage";
 import ReviewListPage from "../review/ReviewListPage";
+import ReviewPage from "../review/ReviewPage";
 
 function MainPage({match, history}) {
 
@@ -53,6 +54,10 @@ function MainPage({match, history}) {
                                 path={`${match.path}review`}
                                 component={ReviewListPage}
                                 exact
+                            />
+                            <Route
+                                path={`${match.path}review/:date`}
+                                component={ReviewPage}
                             />
                             <Route
                                 comonent={Page404}

@@ -47,15 +47,6 @@ const InputContainer = styled.div`
     }
 `;
 
-const RadioInput = styled.input.attrs({
-    type: 'radio'
-})`
-`;
-
-const Label = styled.label`
-    font-size: 14px;
-`;
-
 const DateInput = styled.div`
     display: flex;
     justify-content: flex-first;

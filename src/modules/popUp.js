@@ -1,6 +1,5 @@
 
 // popUp 열기
-import {handleAsyncActions, reducerUtils} from "../lib/asyncUtils";
 
 const OPEN_POPUP = 'popUp/OPEN_POPUP';
 

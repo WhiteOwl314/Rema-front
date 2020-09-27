@@ -41,7 +41,6 @@ function NotesListItem({
     const id = item.id;
     const title = item.title;
     const is_folder = item.is_folder;
-    const is_review = item.is_review;
     let isOpen = false;
 
     const isOpenState = useSelector(state => state.notesList.openFolder);

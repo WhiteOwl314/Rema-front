@@ -5,6 +5,7 @@ import mypage from './modules/member/mypage';
 import notesList from './modules/notes/notesList';
 import note from './modules/notes/note';
 import review from './modules/review/review';
+import reviewDetail from './modules/review/reviewDetail';
 import popUp from './modules/popUp';
 import ReduxThunk from "redux-thunk";
 import logger from "redux-logger";
@@ -20,6 +21,7 @@ export function configureStore(history) {
             notesList,
             note,
             review,
+            reviewDetail,
             popUp,
             router: connectRouter(history)
         }),

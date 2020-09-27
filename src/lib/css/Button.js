@@ -19,7 +19,7 @@ const colorStyles = css`
                 css`
                     color: ${background};
                     background: none;
-                    border: 1px solid ${background};
+                    border: 2px solid ${background};
                     &:hover{
                         background: ${background};
                         color: white;

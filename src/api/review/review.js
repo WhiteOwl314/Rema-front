@@ -44,8 +44,7 @@ export const deleteReviewDate = async (formState) => {
 
 export const getReviewDateListByDate = async (date) => {
     return await axios({
-        method: 'post',
-        url: 'http://localhost:8080/review/getReviewDateListByDate',
-        data: {'date': date}
+        method: 'get',
+        url: `http://localhost:8080/review/getReviewDateListByDate?date=${date}`,
     })
 };

@@ -3,7 +3,6 @@ import LoginForm from "../../components/member/login/LoginForm";
 import LoginTemplate from "../../components/member/login/LoginTemplate";
 import {useDispatch, useSelector} from "react-redux";
 import {clearLogin, Login} from "../../modules/member/member";
-import {executeJwtAuthenticationService, registerSuccessfulLoginForJwt} from "../../api/AuthenticationService";
 
 function LoginContainer({history}) {
 
