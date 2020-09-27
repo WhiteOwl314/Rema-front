@@ -62,9 +62,17 @@ function NotesListItem({
         }
     }
 
+    const currentClick =
+        useSelector(state => state.notesList.currentClick);
+
+    const isActive = currentClick.current === id;
+
+    console.log(isActive);
+
     return (
         <>
-            <ContainerBlock>
+            <ContainerBlock
+            >
                 <IconContext.Provider
                     value={{
                         color: '#494949',
@@ -83,6 +91,9 @@ function NotesListItem({
                     }
                     <Title
                         onClick={() => onClickItem(id)}
+                        style={
+                            {color: isActive? '#3B77AF' : 'black'}
+                        }
                     >
                         {title}
                     </Title>

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import NotesListItem from "./NotesListItem";
+import {useSelector} from "react-redux";
 
 
 const NotesListBlock = styled.div`
@@ -40,6 +41,9 @@ function NotesList({
                        onClickItem
 }) {
 
+    const currentClick =
+        useSelector(state => state.notesList.currentClick);
+
     return(
         <NotesListBlock>
             <NotesListItemContainer
@@ -56,6 +60,7 @@ function NotesList({
                                     folderOrder={folderOrder.data}
                                     notesList={notesList.data}
                                     isOpen={true}
+                                    isActive={currentClick.current === item.id}
                                 />
                             )
                         })
