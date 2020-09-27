@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from "styled-components";
 import Button from "../../lib/css/Button";
+import {useDispatch} from "react-redux";
+import {ChangeKind, OpenPopUp} from "../../modules/popUp";
 
 
 const ContainerBlock = styled.div`
@@ -24,6 +26,14 @@ const HeaderMenu = styled.div`
 `;
 
 function ReviewSearchContainer() {
+
+    const dispatch = useDispatch();
+
+    const onClick= () => {
+        dispatch(ChangeKind('SearchReviewDate'));
+        dispatch(OpenPopUp());
+    };
+
     return (
         <ContainerBlock>
             <HeaderMenu>
@@ -35,6 +45,7 @@ function ReviewSearchContainer() {
                         height: '23px',
                         fontSize: '13px'
                     }}
+                    onClick={onClick}
                 >
                     검색
                 </Button>

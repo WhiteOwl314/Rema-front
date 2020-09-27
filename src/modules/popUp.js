@@ -36,6 +36,11 @@ const CHANGE_REVIEW_DATE_CONTENT = 'popUp/CHANGE_REVIEW_DATE_CONTENT';
 
 export const ChangeReviewDateContent = formState => ({type: CHANGE_REVIEW_DATE_CONTENT, formState});
 
+// 시간검색 내용 변경
+const CHANGE_SEARCH_REVIEW_DATE_CONTENT = 'popUp/CHANGE_SEARCH_REVIEW_DATE_CONTENT';
+
+export const ChangeSearchReviewDateContent = formState => ({type: CHANGE_SEARCH_REVIEW_DATE_CONTENT, formState});
+
 // 내용 초기화
 const CLEAR_CONTENT = 'popUp/CLEAR_CONTENT';
 
@@ -49,7 +54,8 @@ const initialState = {
         addFolder:{title:'', is_first:0},
         addNote:{title:'', is_first:0},
         updateName:{title:''},
-        updateReviewDate:{date:''}
+        updateReviewDate:{date:''},
+        searchReviewDate:{date:''}
     }
 };
 
@@ -122,6 +128,17 @@ export default function popUp(state=initialState, action) {
                     ...state.content,
                     updateReviewDate:{
                         ...state.content.updateReviewDate,
+                        ...action.formState
+                    }
+                }
+            };
+        case CHANGE_SEARCH_REVIEW_DATE_CONTENT:
+            return {
+                ...state,
+                content: {
+                    ...state.content,
+                    searchReviewDate:{
+                        ...state.content.searchReviewDate,
                         ...action.formState
                     }
                 }

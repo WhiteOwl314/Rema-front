@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import AddFolderPopUpWindow from "./AddFolderPopUpWindow";
 import {
     ChangeAddFolderContent,
-    ChangeAddNoteContent, ChangeReviewDateContent,
+    ChangeAddNoteContent, ChangeReviewDateContent, ChangeSearchReviewDateContent,
     ChangeUpdateNameContent,
     ClearContent,
     ClosePopUp
@@ -14,6 +14,8 @@ import AddNotePopUpWindow from "./AddNotePopUpWindow";
 import UpdateNamePopUpWindow from "./UpdateNamePopUpWindow";
 import UpdateReviewDatePopUpWindow from "./UpdateReviewDatePopUpWindow";
 import {ClickReviewDate, DeleteReviewDate, UpdateReviewDate} from "../../modules/review/review";
+import SearchReviewDatePopUpWindow from "./SearchReviewDatePopUpWindow";
+import {push} from "connected-react-router";
 
 
 const Mask = styled.div`
@@ -107,6 +109,11 @@ function PopUp() {
         dispatch(ChangeReviewDateContent({[name]:value}));
     };
 
+    const onChangeSearchReviewDate = async (e) => {
+        const {name, value} = e.target;
+        await dispatch(ChangeSearchReviewDateContent({[name]:value}));
+    };
+
     const onClickAddFolder = async () => {
         await dispatch(AddFolder());
     };
@@ -122,6 +129,12 @@ function PopUp() {
     const onUpdateReviewDate = async () => {
         await dispatch(UpdateReviewDate());
     };
+
+    const onSearchReviewDate = async () => {
+        await dispatch(push(`/review/${content.searchReviewDate.date}`));
+        dispatch(ClosePopUp());
+    };
+
 
 
 
@@ -159,6 +172,14 @@ function PopUp() {
                     onChange={onChangeReviewDate}
                     content={content}
                     onSave={onUpdateReviewDate}
+                />
+                }
+                {_kind === 'SearchReviewDate'
+                && <SearchReviewDatePopUpWindow
+                    onClickCancle={onClickCancle}
+                    onChange={onChangeSearchReviewDate}
+                    content={content}
+                    onSave={onSearchReviewDate}
                 />
                 }
             </LayerPopBlock>
