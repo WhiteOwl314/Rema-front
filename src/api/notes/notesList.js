@@ -3,21 +3,21 @@ import axios from 'axios';
 export const getNotesList = async () => {
     return await axios({
         method: 'get',
-        url: 'http://localhost:8080/notesList/getNotesList'
+        url: 'http://3.12.202.127:8080/notesList/getNotesList'
     })
 };
 
 export const getFolderOrderList = async () => {
     return await axios({
         method: 'get',
-        url: 'http://localhost:8080/folderOrder/getFolderOrderList'
+        url: 'http://3.12.202.127:8080/folderOrder/getFolderOrderList'
     })
 };
 
 export const addNotesList = async (formState) => {
     const response = await axios({
         method: 'post',
-        url: 'http://localhost:8080/notesList/addNotesList',
+        url: 'http://3.12.202.127:8080/notesList/addNotesList',
         // data: { title, is_first, isFolder }
         data: formState
     });
@@ -28,7 +28,7 @@ export const addNotesList = async (formState) => {
 export const updateName = async (formState) => {
     const response = await axios({
         method: 'post',
-        url: 'http://localhost:8080/notesList/updateName',
+        url: 'http://3.12.202.127:8080/notesList/updateName',
         // data: {id, title }
         data: formState
     });
@@ -39,7 +39,7 @@ export const updateName = async (formState) => {
 export const deleteNotesList = async (formState) => {
     const response = await axios({
         method: 'post',
-        url: 'http://localhost:8080/notesList/deleteNotesList',
+        url: 'http://3.12.202.127:8080/notesList/deleteNotesList',
         // data: {id}
         data: formState
     });

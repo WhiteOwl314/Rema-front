@@ -3,7 +3,7 @@ import axios from "axios";
 export const checkId = async id => {
     return await axios({
         method: 'post',
-        url: 'http://localhost:8080/member/checkId.do',
+        url: 'http://3.12.202.127:8080/member/checkId.do',
         data: {
             'id': id
         }
@@ -13,7 +13,7 @@ export const checkId = async id => {
 export const checkEmail = async email => {
     return await axios({
         method: 'post',
-        url: 'http://localhost:8080/member/checkEmail.do',
+        url: 'http://3.12.202.127:8080/member/checkEmail.do',
         data: {
             'email': email
         }
@@ -23,7 +23,7 @@ export const checkEmail = async email => {
 export const addMember = async formData => {
     const response = await axios({
         method: 'post',
-        url: 'http://localhost:8080/member/addMember.do',
+        url: 'http://3.12.202.127:8080/member/addMember.do',
         // data: { id, pw, level, name, email }
         data: formData
     });
@@ -34,7 +34,7 @@ export const addMember = async formData => {
 export const login = async formData => {
     const response = await axios({
         method: 'post',
-        url: 'http://localhost:8080/member/login.do',
+        url: 'http://3.12.202.127:8080/member/login.do',
         // data: { id, pw}
         data: formData
     });
@@ -47,7 +47,7 @@ export const findId = async formState => {
     console.log(formState);
     const response = await axios({
         method: 'post',
-        url: 'http://localhost:8080/member/findId.do',
+        url: 'http://3.12.202.127:8080/member/findId.do',
         // data: {email}
         data: formState
     });
@@ -65,7 +65,7 @@ export const findIdAlertFunction = (payload) => {
 export const findPw = async formData => {
     const response = await axios({
         method: 'post',
-        url: 'http://localhost:8080/member/findPw.do',
+        url: 'http://3.12.202.127:8080/member/findPw.do',
         // data: {id, email}
         data: formData
     });
@@ -85,7 +85,7 @@ export const findPwAlertFunction = (payload) => {
 export const updatePw = async formData => {
     const response = await axios({
         method: 'post',
-        url: 'http://localhost:8080/member/updatePw.do',
+        url: 'http://3.12.202.127:8080/member/updatePw.do',
         // data: {pw, oldPw}
         data: formData
     });
@@ -117,7 +117,7 @@ export const getMember = async () => {
 
     return await axios({
         method: 'post',
-        url: 'http://localhost:8080/member/getMember'
+        url: 'http://3.12.202.127:8080/member/getMember'
         // data: 없음
     });
 };

@@ -5,7 +5,7 @@ export const getMember = async () => {
 
     return await axios({
         method: 'post',
-        url: 'http://localhost:8080/member/getMember'
+        url: 'http://3.12.202.127:8080/member/getMember'
         // data: 없음
     });
 };
@@ -13,7 +13,7 @@ export const getMember = async () => {
 export const updatePw = async formState => {
     return await axios({
         method: 'post',
-        url: 'http://localhost:8080/member/updatePw.do',
+        url: 'http://3.12.202.127:8080/member/updatePw.do',
         //data: pw
         data: formState
     });
@@ -22,7 +22,7 @@ export const updatePw = async formState => {
 export const sendEmailForUpdateEmail = async formState => {
     return await axios({
         method: 'post',
-        url: 'http://localhost:8080/member/sendEmailForUpdateEmail.do',
+        url: 'http://3.12.202.127:8080/member/sendEmailForUpdateEmail.do',
         //data: email
         data: formState
     });
@@ -31,7 +31,7 @@ export const sendEmailForUpdateEmail = async formState => {
 export const updateName = async formState => {
     return await axios({
         method: 'post',
-        url: 'http://localhost:8080/member/updateName.do',
+        url: 'http://3.12.202.127:8080/member/updateName.do',
         //data: name
         data: formState
     });
