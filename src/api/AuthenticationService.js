@@ -20,7 +20,7 @@ axios.interceptors.request.use(
 export const executeJwtAuthenticationService = async formData => {
     const response = await axios({
         method: 'post',
-        url: 'https://3.12.202.127:8080/authenticate',
+        url: 'http://3.12.202.127:8080/authenticate',
         //formData: username, psssword 필요
         data: formData
     });
@@ -88,7 +88,7 @@ export const loginCheck = async () => {
 
     return await axios({
         method: 'post',
-        url: 'https://3.12.202.127:8080/loginCheck'
+        url: 'http://3.12.202.127:8080/loginCheck'
         // data: 없음
     });
 };
