@@ -117,7 +117,7 @@ export const getMember = async () => {
 
     return await axios({
         method: 'post',
-        url: 'http://3.12.202.127:8080/member/getMember'
+        url: 'https://3.12.202.127:8080/member/getMember'
         // data: 없음
     });
 };

@@ -22,7 +22,7 @@ export const updatePw = async formState => {
 export const sendEmailForUpdateEmail = async formState => {
     return await axios({
         method: 'post',
-        url: 'http://3.12.202.127:8080/member/sendEmailForUpdateEmail.do',
+        url: 'https://3.12.202.127:8080/member/sendEmailForUpdateEmail.do',
         //data: email
         data: formState
     });
@@ -31,7 +31,7 @@ export const sendEmailForUpdateEmail = async formState => {
 export const updateName = async formState => {
     return await axios({
         method: 'post',
-        url: 'http://3.12.202.127:8080/member/updateName.do',
+        url: 'https://3.12.202.127:8080/member/updateName.do',
         //data: name
         data: formState
     });
